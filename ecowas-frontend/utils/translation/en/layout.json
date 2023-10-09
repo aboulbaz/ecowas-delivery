@@ -1,0 +1,16 @@
+{
+    "title": "ECOWAS",
+    "sub-title": "HCD Dashboard",
+    "filters": "Filters",
+    "menu": "Menu",
+    "menu-items": {
+        "overview": "Overview",
+        "dimension-results": "Dimension results",
+        "country-comparison": "Country comparison",
+        "country-results": "Country results",
+        "hcd-gender-index": "HCD Gender index",
+        "hcd-gender-index-deep-dive": "HCD Gender index deep-dive",
+        "methodology": "Methodology"
+    },
+    "sidebar-sub-title": "ECOWAS Latest value, 2018-20"
+}

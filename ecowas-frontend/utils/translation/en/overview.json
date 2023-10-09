@@ -1,0 +1,21 @@
+{
+  "integrated-hcd-index": "HCD integrated index",
+  "progress": "Progress made since 2017",
+  "health": "Health and nutrition",
+  "education": "Education, skills, and labor participation",
+  "entrepreneurship": "Entrepreneurship, financial inclusion, and digital economy",
+  "hcd-gender-index": {
+    "title-label": "HCD Gender index",
+    "latest-value": "Latest Value",
+    "latest-value-normalized": "Latest Value Normalized"
+  },
+  "target-value": "Target Value",
+  "baseline": "Baseline",
+  "baseline-normalized": "Baseline Normalized",
+  "latest:": "Latest",
+  "target-latest-value": "Target for latest value",
+  "target-latest-value-normalized": "Target for Latest Value Normalized",
+  "target-2030": "Target 2030",
+  "target-2030-normalized": "Target 2030 Normalized",
+  "rank": "Rank"
+}

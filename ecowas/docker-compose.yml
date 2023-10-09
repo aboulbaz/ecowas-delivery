@@ -1,41 +1,16 @@
-version: "3"
+version: '3'
 
 services:
   data_backend:
     build:
-      context: ecowas/
+      context: .
       dockerfile: Dockerfile
     container_name: data_backend
+    restart: on-failure
     networks:
       - ecowas_network
     depends_on:
       - postgres
-
-  ecowas-backend:
-    build:
-      context: ecowas-backend/
-      dockerfile: Dockerfile
-    container_name: ecowas-backend
-    restart: on-failure
-    ports:
-      - "5000:5000"
-    networks:
-      - ecowas_network
-    depends_on:
-      - data_backend
-
-  ecowas-frontend:
-    build:
-      context: ecowas-frontend/
-      dockerfile: Dockerfile
-    container_name: ecowas-frontend
-    restart: on-failure
-    ports:
-      - "3000:3000"
-    networks:
-      - ecowas_network
-    depends_on:
-      - ecowas-backend
 
   postgres:
     image: postgres:15.3-alpine3.18
@@ -45,7 +20,7 @@ services:
       - "5432:5432"
     volumes:
       - data:/var/lib/postgresql/data:rw
-    env_file: "ecowas-backend/.env"
+    env_file: '.env'
     networks:
       - ecowas_network
 
@@ -55,7 +30,7 @@ services:
     restart: always
     ports:
       - "8080:8080"
-    env_file: "ecowas/.env"
+    env_file: '.env'
     volumes:
       - pgadmin:/var/lib/pgadmin:rw
     networks:
@@ -66,7 +41,7 @@ services:
 volumes:
   data:
   pgadmin:
-
+  
 networks:
   ecowas_network:
     driver: bridge

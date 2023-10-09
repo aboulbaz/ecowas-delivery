@@ -1,0 +1,16 @@
+{
+    "title": "ECOWAS",
+    "sub-title": "Tableau de bord HCD",
+    "filters": "Filtres",
+    "menu": "Menu",
+    "menu-items": {
+      "overview": "Aperçu",
+      "dimension-results": "Résultats par dimension",
+      "country-comparison": "Comparaison des pays",
+      "country-results": "Résultats par pays",
+      "hcd-gender-index": "Indice de genre HCD",
+      "hcd-gender-index-deep-dive": "Plongée approfondie dans l'indice de genre HCD",
+      "methodology": "Méthodologie"
+    },
+    "sidebar-sub-title": "Dernière valeur de la ECOWAS, 2018-20"    
+  }
