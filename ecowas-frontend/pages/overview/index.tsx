@@ -4,7 +4,7 @@ import Layout from "components/Layout";
 import { OverviewCard } from "components/Cards";
 import SideSection from "components/SideSection";
 import { useLanguageContext, useOverviewContext } from "utils/context";
-import { useEffect, useMemo } from "react";
+import { useEffect } from "react";
 import { useMutation } from "react-query";
 import {
   GET_OVERVIEW_VALUES,
@@ -54,6 +54,8 @@ const OverviewPageCards: React.FC = () => {
   useEffect(() => {
     getOveviewValue(country?.id || ECOWAS_DEFAULT_ID);
   }, [country, getOveviewValue]);
+
+  console.log("values", values);
 
   return country ? (
     <OverviewPageWrapper>

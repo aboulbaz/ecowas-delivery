@@ -125,7 +125,7 @@ const OverviewChart: React.FC<OverviewChartProps> = ({
       <ChartBarWrapper>
         <ChartValues
           targetValue={targetValue}
-          baseLine={baseLine + 0.20}
+          baseLine={baseLine}
           target2030={target2030}
         />
         <BarWrapper>
@@ -133,9 +133,9 @@ const OverviewChart: React.FC<OverviewChartProps> = ({
         </BarWrapper>
         <ChartLabels
           targetValue={targetValue}
-          baseLine={baseLine + 0.20}
+          baseLine={baseLine}
           target2030={target2030}
-        />
+          />
       </ChartBarWrapper>
     </ChartWrapper>
   );
