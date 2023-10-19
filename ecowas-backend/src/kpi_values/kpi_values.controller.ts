@@ -5,6 +5,11 @@ import { KpiValuesService } from './kpi_values.service';
 export class KpiValuesController {
   constructor(private readonly kpiValuesService: KpiValuesService) {}
 
+  @Get('/hcd-gender-index')
+  findHcdGenderIndex() {
+    return this.kpiValuesService.findHcdGenderIndex();
+  }
+
   @Get('index/all')
   findAllKpiIndexValues() {
     return this.kpiValuesService.findAllKpiIndexValues();

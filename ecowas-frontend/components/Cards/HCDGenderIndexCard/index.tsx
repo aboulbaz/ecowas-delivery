@@ -4,28 +4,36 @@ import {
   HCDGenderIndexTableContainer,
 } from "./HCDGenderIndexCard.style";
 import HCDGenderIndexCardHeader from "./HCDGenderIndexCardHeader";
-import { useQueryClient } from "react-query";
-import { GET_COUNTRIES } from "utils/api-requests/global";
-import { ICountry } from "utils/types";
+import { useQuery } from "react-query";
 import HCDGenderIndexRow from "./HCDGenderIndexRow";
+import {
+  GET_COUNTRIES_INDEX,
+  getCountriesKpisIndex,
+} from "utils/api-requests/hcd-gender-index";
+import { CicularLoaderWrapper } from "components/Maps/HCDMap/HCDMap.style";
+import { CircularProgress } from "@mui/material";
 
 const HCDGenderIndexCard: React.FC = () => {
-  const queryClient = useQueryClient();
+  const { data: countriesIndex, isLoading } = useQuery(
+    [GET_COUNTRIES_INDEX],
+    getCountriesKpisIndex
+  );
 
-  const countries = queryClient.getQueryData(GET_COUNTRIES) as ICountry[];
-
-  return (
+  return !isLoading ? (
     <HCDGenderIndexCardWrapper>
       <HCDGenderIndexTableContainer>
         <HCDGenderIndexCardHeader />
         <tbody>
-          {countries &&
-            countries.map((country) => (
-              <HCDGenderIndexRow country={country} key={country.id} />
-            ))}
+          {countriesIndex?.map((country) => (
+            <HCDGenderIndexRow country={country} key={country.id} />
+          ))}
         </tbody>
       </HCDGenderIndexTableContainer>
     </HCDGenderIndexCardWrapper>
+  ) : (
+    <CicularLoaderWrapper>
+      <CircularProgress color="success" />
+    </CicularLoaderWrapper>
   );
 };
 

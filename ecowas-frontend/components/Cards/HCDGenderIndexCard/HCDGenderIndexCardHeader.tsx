@@ -43,16 +43,38 @@ const HCDGenderIndexCardHeader: React.FC = () => {
           </MapMetricWrapper>
         </HCDGenderIndexTableCell>
 
-        {kpis?.map((kpi) => (
-          <HCDGenderIndexTableCell key={kpi.id}>
+        <HCDGenderIndexTableCell >
             <HCDGenderIndexTableCellWrapper>
-              <Image src={IconDispatcher[kpi.id].icon} height={50} alt="" />
+              <Image src={IconDispatcher[22].icon} height={50} alt="" />
               <HCDGenderIndexTableCellTitle>
-                {kpi.label}
+                <FormattedMessage id={IconDispatcher[22].title} />
               </HCDGenderIndexTableCellTitle>
             </HCDGenderIndexTableCellWrapper>
           </HCDGenderIndexTableCell>
-        ))}
+          <HCDGenderIndexTableCell >
+            <HCDGenderIndexTableCellWrapper>
+              <Image src={IconDispatcher[1].icon} height={50} alt="" />
+              <HCDGenderIndexTableCellTitle>
+                <FormattedMessage id={IconDispatcher[1].title} />
+              </HCDGenderIndexTableCellTitle>
+            </HCDGenderIndexTableCellWrapper>
+          </HCDGenderIndexTableCell>
+          <HCDGenderIndexTableCell >
+            <HCDGenderIndexTableCellWrapper>
+              <Image src={IconDispatcher[9].icon} height={50} alt="" />
+              <HCDGenderIndexTableCellTitle>
+                <FormattedMessage id={IconDispatcher[9].title} />
+              </HCDGenderIndexTableCellTitle>
+            </HCDGenderIndexTableCellWrapper>
+          </HCDGenderIndexTableCell>
+          <HCDGenderIndexTableCell >
+            <HCDGenderIndexTableCellWrapper>
+              <Image src={IconDispatcher[18].icon} height={50} alt="" />
+              <HCDGenderIndexTableCellTitle>
+                <FormattedMessage id={IconDispatcher[18].title} />
+              </HCDGenderIndexTableCellTitle>
+            </HCDGenderIndexTableCellWrapper>
+          </HCDGenderIndexTableCell>
       </HCDGenderIndexTableRow>
     </HCDGenderIndexTableHead>
   );

@@ -186,20 +186,37 @@ const HCDDeepDiveMap: React.FC = () => {
                 <MapSVGCircle
                   key={index}
                   opacity={tmp ? tmp * 100 : rand * 100}
-                  cx={`${CountryMapSvgAttributes[country.id]?.cx || 0}`}
-                  cy={`${CountryMapSvgAttributes[country.id]?.cy || 0}`}
+                  cx={`${
+                    (CountryMapSvgAttributes[country.id]?.tx
+                      ? CountryMapSvgAttributes[country.id]?.tx
+                      : CountryMapSvgAttributes[country.id]?.cx) || 0
+                  }`}
+                  cy={`${
+                    (CountryMapSvgAttributes[country.id]?.ty
+                      ? CountryMapSvgAttributes[country.id]?.ty
+                      : CountryMapSvgAttributes[country.id]?.cy) || 0
+                  }`}
                   r={`${CountryMapSvgAttributes[country.id]?.r}` || "2"}
                 />
                 <MapText
                   x={`${(CountryMapSvgAttributes[country.id]?.cx || 0) - 2}`}
                   y={`${(CountryMapSvgAttributes[country.id]?.cy || 0) + 4.5}`}
+                  isBlack={!!CountryMapSvgAttributes[country.id]?.isBlack}
                 >
                   {country.label}
                 </MapText>
 
                 <MapText
-                  x={`${(CountryMapSvgAttributes[country.id]?.cx || 0) - 1.8}`}
-                  y={`${(CountryMapSvgAttributes[country.id]?.cy || 0) + 0.5}`}
+                  x={`${
+                    ((CountryMapSvgAttributes[country.id]?.tx
+                      ? CountryMapSvgAttributes[country.id]?.tx
+                      : CountryMapSvgAttributes[country.id]?.cx) || 0) - 1.8
+                  }`}
+                  y={`${
+                    ((CountryMapSvgAttributes[country.id]?.ty
+                      ? CountryMapSvgAttributes[country.id]?.ty
+                      : CountryMapSvgAttributes[country.id]?.cy) || 0) + 0.5
+                  }`}
                 >
                   {tmp ? tmp.toFixed(2) : rand.toFixed(2)}
                 </MapText>

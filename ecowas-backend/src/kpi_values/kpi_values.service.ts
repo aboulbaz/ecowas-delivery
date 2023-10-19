@@ -175,4 +175,27 @@ export class KpiValuesService {
       throw new NotFoundException();
     }
   }
+
+  async findHcdGenderIndex() {
+    try {
+      const kpiIndex = await this.kpiValueRepository.find({
+        join: {
+          alias: 'kpiValue',
+          innerJoinAndSelect: {
+            kpi: 'kpiValue.kpi',
+            country: 'kpiValue.country',
+          },
+        },
+        where: {
+          kpi: {
+            parent: IsNull(),
+          },
+        },
+        relations: ['kpi', 'country'],
+      });
+      return kpiIndex;
+    } catch (error) {
+      throw new NotFoundException();
+    }
+  }
 }

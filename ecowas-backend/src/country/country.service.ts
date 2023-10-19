@@ -1,7 +1,7 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Country } from './entities/country.entity';
-import { Repository } from 'typeorm';
+import { IsNull, Repository } from 'typeorm';
 
 @Injectable()
 export class CountryService {
@@ -12,5 +12,23 @@ export class CountryService {
 
   async findAll() {
     return await this.countryRepository.find();
+  }
+  async findHcdGenderIndex() {
+    try {
+      const countries = await this.countryRepository.find({
+        where: {
+          kpiValues: {
+            kpi: {
+              parent: IsNull(),
+            },
+          },
+        },
+        relations: ['kpiValues', 'kpiValues.kpi'],
+      });
+      return countries;
+    } catch (error) {
+      console.log(error);
+      throw new NotFoundException();
+    }
   }
 }

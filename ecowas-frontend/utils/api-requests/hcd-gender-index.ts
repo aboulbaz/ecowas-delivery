@@ -3,10 +3,11 @@ import HCDIcon from "public/assets/icons/integrated-hcd-index-icon.svg";
 import HealthIcon from "public/assets/icons/icon-health.svg";
 import EducationIcon from "public/assets/icons/education-icon.svg";
 import EntrepreneurshipIcon from "public/assets/icons/entrepreneurship-icon.svg";
-import { IKPI, IOverviewValues } from "utils/types";
+import { ICountry, IKPI, IOverviewValues } from "utils/types";
 
 export const GET_ALL_INDEX_KPIS = "GET_ALL_INDEX_KPIS";
 export const GET_ALL_MAIN_KPIS = "GET_ALL_MAIN_KPIS";
+export const GET_COUNTRIES_INDEX = "GET_COUNTRIES_INDEX";
 
 type IconDIspatcherValue = {
   icon: any;
@@ -28,4 +29,8 @@ export const getAllIndexKpis = async (
 
 export const getAllMainKpis = async (): Promise<IKPI[]> => {
   return EcowasClient.get(`kpi/main`);
+};
+
+export const getCountriesKpisIndex = async (): Promise<ICountry[]> => {
+  return EcowasClient.get("country/hcd-gender-index");
 };

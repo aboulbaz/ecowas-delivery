@@ -15,25 +15,44 @@ type Props = {
 };
 
 const HCDGenderIndexRow: React.FC<Props> = ({ country }) => {
-  const { data: values, mutate: getHCDGenderIndexRow } = useMutation(
-    [GET_ALL_INDEX_KPIS],
-    getOverviewValues
+  const HCDValue = country.kpiValues?.find((val) => val.kpi.id === 22);
+  const HealtValue = country.kpiValues?.find((val) => val.kpi.id === 1);
+  const EducationValue = country.kpiValues?.find((val) => val.kpi.id === 9);
+  const EntrepreneurshipValue = country.kpiValues?.find(
+    (val) => val.kpi.id === 18
   );
-  useEffect(() => {
-    getHCDGenderIndexRow(country.id);
-  }, [country.id, getHCDGenderIndexRow]);
 
   return (
     <HCDGenderIndexTableRow>
       <HCDGenderIndexTableCell>{country.label}</HCDGenderIndexTableCell>
-      {values?.map((value) => (
+      {HCDValue && (
         <ValuedHCDGenderIndexTableCell
-          key={value.id}
-          opacity={value.target2030Normalized * 100}
+          opacity={HCDValue.target2030Normalized * 100}
         >
-          {value.target2030.toFixed(2)}
+          {HCDValue.target2030.toFixed(2)}
         </ValuedHCDGenderIndexTableCell>
-      ))}
+      )}
+      {HealtValue && (
+        <ValuedHCDGenderIndexTableCell
+          opacity={HealtValue.target2030Normalized * 100}
+        >
+          {HealtValue.target2030.toFixed(2)}
+        </ValuedHCDGenderIndexTableCell>
+      )}
+      {EducationValue && (
+        <ValuedHCDGenderIndexTableCell
+          opacity={EducationValue.target2030Normalized * 100}
+        >
+          {EducationValue.target2030.toFixed(2)}
+        </ValuedHCDGenderIndexTableCell>
+      )}
+      {EntrepreneurshipValue && (
+        <ValuedHCDGenderIndexTableCell
+          opacity={EntrepreneurshipValue.target2030Normalized * 100}
+        >
+          {EntrepreneurshipValue.target2030.toFixed(2)}
+        </ValuedHCDGenderIndexTableCell>
+      )}
     </HCDGenderIndexTableRow>
   );
 };

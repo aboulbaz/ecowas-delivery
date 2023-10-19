@@ -49,6 +49,7 @@ export const LanguageDispatcher: Record<LANGUAGES, ILanguageDispatcher> = {
 export interface ICountry {
   id: number;
   label: string;
+  kpiValues?: IOverviewValues[];
 }
 
 export interface IOverviewValues {

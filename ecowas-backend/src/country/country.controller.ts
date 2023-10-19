@@ -6,9 +6,15 @@ export class CountryController {
   constructor(private readonly countryService: CountryService) {}
 
   @Get()
-  findAll() {
-    return this.countryService.findAll();
+  async findAll() {
+    return await this.countryService.findAll();
   }
+
+  @Get('hcd-gender-index')
+  async findHcdGenderIndex() {
+    return await this.countryService.findHcdGenderIndex();
+  }
+
   /* 
   HTTP REQUESTS VERBS:
    - GET REQUEST

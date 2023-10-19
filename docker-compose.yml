@@ -1,41 +1,41 @@
 version: "3"
 
 services:
-  data_backend:
-    build:
-      context: ecowas/
-      dockerfile: Dockerfile
-    container_name: data_backend
-    networks:
-      - ecowas_network
-    depends_on:
-      - postgres
+  # data_backend:
+  #   build:
+  #     context: ecowas/
+  #     dockerfile: Dockerfile
+  #   container_name: data_backend
+  #   networks:
+  #     - ecowas_network
+  #   depends_on:
+  #     - postgres
 
-  ecowas-backend:
-    build:
-      context: ecowas-backend/
-      dockerfile: Dockerfile
-    container_name: ecowas-backend
-    restart: on-failure
-    ports:
-      - "5000:5000"
-    networks:
-      - ecowas_network
-    depends_on:
-      - data_backend
+  # ecowas-backend:
+  #   build:
+  #     context: ecowas-backend/
+  #     dockerfile: Dockerfile
+  #   container_name: ecowas-backend
+  #   restart: on-failure
+  #   ports:
+  #     - "5000:5000"
+  #   networks:
+  #     - ecowas_network
+  #   depends_on:
+  #     - data_backend
 
-  ecowas-frontend:
-    build:
-      context: ecowas-frontend/
-      dockerfile: Dockerfile
-    container_name: ecowas-frontend
-    restart: on-failure
-    ports:
-      - "3000:3000"
-    networks:
-      - ecowas_network
-    depends_on:
-      - ecowas-backend
+  # ecowas-frontend:
+  #   build:
+  #     context: ecowas-frontend/
+  #     dockerfile: Dockerfile
+  #   container_name: ecowas-frontend
+  #   restart: on-failure
+  #   ports:
+  #     - "3000:3000"
+  #   networks:
+  #     - ecowas_network
+  #   depends_on:
+  #     - ecowas-backend
 
   postgres:
     image: postgres:15.3-alpine3.18

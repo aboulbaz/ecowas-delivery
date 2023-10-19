@@ -25,7 +25,7 @@ export const MapMetricWrapper = styled.div`
   width: 5rem;
   /* display: flex; */
   padding: 0.7rem;
-  padding-left: 1rem;
+  padding-left: 0.5rem;
 `;
 
 export const MapMetric = styled.div`
@@ -79,11 +79,16 @@ export const MapWrapper = styled.g`
   z-index: -10;
 `;
 
-export const MapText = styled.text`
+type MapTextProps = {
+  isBlack?: boolean;
+};
+
+export const MapText = styled.text<MapTextProps>`
   text-align: center;
   font-size: 1.5px;
   font-weight: bolder;
-  fill: #fff;
+  fill: ${({ theme, isBlack }) =>
+    isBlack ? '#999696' : theme.colors.white};
 `;
 
 export const CicularLoaderWrapper = styled.div`
@@ -112,7 +117,7 @@ export const CaboVerdeCircle = styled.div<MapSVGPathProps>`
   border-radius: 50%;
   height: 3rem;
   width: 3rem;
-  margin-top: 6rem;
+  margin-top: 2rem;
   margin-bottom: 5px;
   text-align: center;
   padding-top: 0.7rem;
@@ -130,7 +135,7 @@ export const ECOWASCircle = styled.div<MapSVGPathProps>`
   height: 6rem;
   width: 6rem;
   border-radius: 50%;
-  margin-top: 6rem;
+  margin-top: 9rem;
 `;
 
 export const ECOWASText = styled.div`

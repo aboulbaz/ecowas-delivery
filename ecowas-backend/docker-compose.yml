@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: ecowas_pg
+    restart: always
+    ports:
+      - '5430:5432'
+    volumes:
+      - ecowas_pg:/var/lib/postgresql/data
+    env_file: '.env'
+  
+
+volumes:
+  ecowas_pg:

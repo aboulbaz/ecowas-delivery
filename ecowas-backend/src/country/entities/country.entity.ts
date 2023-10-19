@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryColumn } from 'typeorm';
+import { KpiValue } from 'src/kpi_values/entities/kpi_value.entity';
+import { Column, Entity, OneToMany, PrimaryColumn } from 'typeorm';
 
 @Entity()
 export class Country {
@@ -6,4 +7,7 @@ export class Country {
   id: number;
   @Column()
   label: string;
+
+  @OneToMany(() => KpiValue, (kpiValue) => kpiValue.country)
+  kpiValues: KpiValue[];
 }
