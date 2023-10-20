@@ -29,4 +29,5 @@ COPY --from=builder /app .
 EXPOSE 5000
 
 # Run the NestJS application
-CMD ["node", "dist/src/main.js"]
+# CMD ["node", "dist/src/main.js"]
+CMD ["node", "dist/main.js"]
