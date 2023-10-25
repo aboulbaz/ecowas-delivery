@@ -1,7 +1,7 @@
 export const interpolateColor = (percentage: number): string => {
   // Parse the colors
-  const c1 = parseInt("00834f", 16);
-  const c2 = parseInt("e0824e", 16);
+  const c1 = parseInt("e0824e", 16);
+  const c2 = parseInt("00834f", 16);
 
   // Extract the RGB values
   const r1 = (c1 >> 16) & 255;
