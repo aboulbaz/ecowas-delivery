@@ -13,10 +13,9 @@ import {
   ChartWrapper,
 } from "./OverviewChart.style";
 import { themeColors } from "themes/emotionColors";
-import ChartLabels from "./ChartLabels";
-import ChartValues from "./ChartValues";
 import TargetValue2030 from "./TargetValue2030";
 import "chartjs-plugin-datalabels";
+import ChartValue from "./ChartValue";
 
 ChartJS.register(CategoryScale, LinearScale, BarElement);
 
@@ -123,19 +122,15 @@ const OverviewChart: React.FC<OverviewChartProps> = ({
     <ChartWrapper>
       <TargetValue2030 target2030={target2030} />
       <ChartBarWrapper>
-        <ChartValues
-          targetValue={targetValue}
-          baseLine={baseLine}
-          target2030={target2030}
-        />
+        <ChartValue title={"overview.baseline"} value={baseLine} />
         <BarWrapper>
           <Bar data={data} options={optionsBeta} plugins={plugins} />
         </BarWrapper>
-        <ChartLabels
-          targetValue={targetValue}
-          baseLine={baseLine}
-          target2030={target2030}
-          />
+        <ChartValue
+          title={"overview.target-value"}
+          value={targetValue}
+          isPrimary
+        />
       </ChartBarWrapper>
     </ChartWrapper>
   );

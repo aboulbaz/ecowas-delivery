@@ -24,7 +24,7 @@ export const IconDispatcher: Record<number, IconDIspatcherValue> = {
 export const getAllIndexKpis = async (
   id: number
 ): Promise<IOverviewValues[]> => {
-  return EcowasClient.get(`kpi-values/index/all/${id}`);
+  return EcowasClient.get(`gender-kpi-values/index/all/${id}`);
 };
 
 export const getAllMainKpis = async (): Promise<IKPI[]> => {

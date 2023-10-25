@@ -36,15 +36,14 @@ export const HCDGenderIndexTableCell = styled.td`
 `;
 
 type ValuedHCDGenderIndexTableCellProps = {
-  opacity: number;
+  color: string;
 };
 
 export const ValuedHCDGenderIndexTableCell = styled.td<ValuedHCDGenderIndexTableCellProps>`
   padding: 5px;
   font-size: 10px;
   width: 5px;
-  background: ${({ opacity }) => (opacity > 50 ? "#00834f" : "#e0824e")};
-  opacity: ${({ opacity }) => `${opacity > 50 ? opacity : 100 - opacity}%`};
+  background: ${({ color }) => color};
   border: 2px solid white;
   position: relative;
   text-align: center;

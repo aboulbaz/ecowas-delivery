@@ -40,13 +40,14 @@ type ChartLabelProps = {
   isPrimary?: boolean;
   isValue?: boolean;
   value?: number;
-  maxValue?: number;
 };
 
 export const ChartLabelWrapper = styled.div<ChartLabelProps>`
   padding-top: 5rem;
   padding-bottom: 1.5rem;
-  @media (min-width: 1600px) {
+  margin-right: -21px;
+  margin-left: -21px;
+  /* @media (min-width: 1600px) {
   }
   @media (min-width: 1920px) {
   }
@@ -55,32 +56,40 @@ export const ChartLabelWrapper = styled.div<ChartLabelProps>`
   }
   @media (max-width: 1300) {
     margin-left: -1.5rem;
-  }
+  } */
 `;
 
 export const ChartLabelsContainer = styled.div`
   position: relative;
   height: 100%;
-  min-width: 4rem;
+  min-width: 3.7rem;
   display: flex;
-  justify-content: end;
-  flex-direction: column;
-  text-align: left;
   font-size: 8px;
-  font-style: normal;
-  font-weight: 700;
+  font-weight: 900;
   line-height: 120%;
 `;
 
 export const ChartLabelTitle = styled.div<ChartLabelProps>`
   position: absolute;
-  color: ${({ theme, isPrimary }) =>
-    isPrimary ? theme.colors.primary : "#ADADAD"};
   bottom: ${({ value }) => (value ? `${value * 100}%` : "0%")};
-  border-bottom: 1px dashed
-    ${({ theme, isPrimary }) => (isPrimary ? theme.colors.primary : "#ADADAD")};
   width: 100%;
   padding: 5px;
+  padding-bottom: 0px;
+`;
+
+export const ChartLabelTitleText = styled.div<ChartLabelProps>`
+  color: ${({ theme, isPrimary }) =>
+    isPrimary ? theme.colors.primary : "#ADADAD"};
+  border-bottom: 1px dashed
+    ${({ theme, isPrimary }) => (isPrimary ? theme.colors.primary : "#ADADAD")};
+  padding-bottom: 2px;
+  align-items: center;
+`;
+
+export const ChartLabelValue = styled.div<ChartLabelProps>`
+  color: ${({ theme, isPrimary }) =>
+    isPrimary ? theme.colors.primary : "#ADADAD"};
+  margin-bottom: -8px;
 `;
 
 export const ChartLabelYear = styled.div<ChartLabelProps>`
@@ -91,16 +100,17 @@ export const ChartLabelYear = styled.div<ChartLabelProps>`
 export const ChartValueWrapper = styled.div`
   padding-top: 5rem;
   padding-bottom: 1.5rem;
-  @media (min-width: 1600px) {
-  }
-  @media (min-width: 1920px) {
-  }
-  @media (max-width: 1430px) {
+  margin-right: -21px;
+  margin-left: -21px;
+  /* @media (max-width: 1430px) {
     margin-right: -1rem;
   }
   @media (max-width: 1300) {
     margin-right: -1.5rem;
   }
+  @media (max-width: 1250) {
+    margin-right: -2rem;
+  } */
 `;
 
 export const ChartValuesContainer = styled.div`

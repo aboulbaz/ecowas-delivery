@@ -27,9 +27,9 @@ import {
   MapText,
   MapWrapper,
   MapContainer,
-  MapTextWrapper,
 } from "./HCDDeepDiveMap.style";
 import { FormattedMessage } from "react-intl";
+import { interpolateColor } from "utils/functions";
 
 const HCDDeepDiveMap: React.FC = () => {
   const queryClient = useQueryClient();
@@ -85,12 +85,15 @@ const HCDDeepDiveMap: React.FC = () => {
             <FormattedMessage id="HcdGenderIndex.low" />
           </MapMetricLabel>
           <CaboVerdeWrapper>
-            <CaboVerdeCircle opacity={caboVerde * 100}>
+            <CaboVerdeCircle
+              opacity={caboVerde * 100}
+              color={interpolateColor(caboVerde)}
+            >
               {caboVerde.toFixed(2)}
             </CaboVerdeCircle>
             Cabo Verde
           </CaboVerdeWrapper>
-          <ECOWASCircle opacity={ECOWAS * 100}>
+          <ECOWASCircle opacity={ECOWAS * 100} color={interpolateColor(ECOWAS)}>
             <ECOWASText>ECOWAS</ECOWASText>
             <ECOWASValue>{ECOWAS.toFixed(2)}</ECOWASValue>
           </ECOWASCircle>
@@ -104,18 +107,18 @@ const HCDDeepDiveMap: React.FC = () => {
             {countries.map((country, index) => {
               const tmp = data.find(
                 (c) => c.country.id === country.id
-              )?.baselineNormalized;
+              )?.latestValueNormalized;
               const rand = +getRandomValue();
               return (
                 <>
                   <MapSVGSelectedPath
-                    opacity={tmp ? tmp * 100 : rand * 100}
                     key={index}
                     id={country.label}
                     d={
                       CountryMapSvgAttributes[country.id] &&
                       CountryMapSvgAttributes[country.id].d
                     }
+                    color={interpolateColor(tmp || 0)}
                   />
                 </>
               );
@@ -177,15 +180,13 @@ const HCDDeepDiveMap: React.FC = () => {
             />
           </MapWrapper>
           {countries.map((country, index) => {
-            const tmp = data.find(
-              (c) => c.country.id === country.id
-            )?.baselineNormalized;
-            const rand = +getRandomValue();
+            const tmp = data.find((c) => c.country.id === country.id);
             return (
               <>
                 <MapSVGCircle
+                  opacity={(tmp?.latestValueNormalized || 0) * 100}
                   key={index}
-                  opacity={tmp ? tmp * 100 : rand * 100}
+                  color={interpolateColor(tmp?.latestValueNormalized || 0)}
                   cx={`${
                     (CountryMapSvgAttributes[country.id]?.tx
                       ? CountryMapSvgAttributes[country.id]?.tx
@@ -218,7 +219,7 @@ const HCDDeepDiveMap: React.FC = () => {
                       : CountryMapSvgAttributes[country.id]?.cy) || 0) + 0.5
                   }`}
                 >
-                  {tmp ? tmp.toFixed(2) : rand.toFixed(2)}
+                  {tmp?.latestValue?.toFixed(2)}
                 </MapText>
               </>
             );

@@ -52,13 +52,12 @@ export const MapMetricLabel = styled.p`
 `;
 
 type MapSVGPathProps = {
-  opacity: number;
+  opacity?: number;
+  color: string;
 };
 
 export const MapSVGSelectedPath = styled.path<MapSVGPathProps>`
-  opacity: ${({ opacity }) =>
-    opacity > 50 ? `${opacity}%` : `${100 - opacity}%`};
-  fill: ${({ opacity }) => (opacity > 50 ? "#00834f" : "#e0824e")};
+  fill: ${({ color }) => color};
   stroke: white;
   stroke-opacity: 1;
   stroke-width: 0.1;
@@ -68,7 +67,7 @@ export const MapSVGSelectedPath = styled.path<MapSVGPathProps>`
 export const MapSVGCircle = styled.circle<MapSVGPathProps>`
   position: absolute;
   z-index: 10;
-  fill: ${({ opacity }) => (opacity > 50 ? "#00834f" : "#e0824e")};
+  fill: ${({ color }) => color};
   stroke: white;
   stroke-width: 0.2px;
   top: 3em;
@@ -87,8 +86,7 @@ export const MapText = styled.text<MapTextProps>`
   text-align: center;
   font-size: 1.5px;
   font-weight: bolder;
-  fill: ${({ theme, isBlack }) =>
-    isBlack ? '#999696' : theme.colors.white};
+  fill: ${({ theme, isBlack }) => (isBlack ? "#999696" : theme.colors.white)};
 `;
 
 export const CicularLoaderWrapper = styled.div`
@@ -111,9 +109,7 @@ export const CaboVerdeWrapper = styled.div`
 `;
 
 export const CaboVerdeCircle = styled.div<MapSVGPathProps>`
-  background: ${({ opacity }) => (opacity > 50 ? "#00834f" : "#e0824e")};
-  opacity: ${({ opacity }) =>
-    opacity > 50 ? `${opacity}%` : `${100 - opacity}%`};
+  background: ${({ color }) => color};
   border-radius: 50%;
   height: 3rem;
   width: 3rem;
@@ -126,9 +122,7 @@ export const CaboVerdeCircle = styled.div<MapSVGPathProps>`
 `;
 
 export const ECOWASCircle = styled.div<MapSVGPathProps>`
-  background: ${({ opacity }) => (opacity > 50 ? "#00834f" : "#e0824e")};
-  opacity: ${({ opacity }) =>
-    opacity > 50 ? `${opacity}%` : `${100 - opacity}%`};
+  background: ${({ color }) => color};
   display: flex;
   flex-direction: column;
   align-items: center;

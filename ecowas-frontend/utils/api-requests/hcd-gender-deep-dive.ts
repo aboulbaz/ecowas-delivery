@@ -24,5 +24,5 @@ export const getNestedKPIs = async (id: number): Promise<IKPI[]> => {
 };
 
 export const getKpiData = async (id: number): Promise<IOverviewValues[]> => {
-  return await EcowasClient.get(`kpi-values?kpi=${id}`);
+  return await EcowasClient.get(`gender-kpi-values?kpi=${id}`);
 }

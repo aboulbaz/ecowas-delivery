@@ -6,7 +6,6 @@ import { NextPage } from "next";
 import { IntlProvider } from "react-intl";
 import { intlMessagesDispatcher } from "utils/constants";
 import { useLanguageContext } from "utils/context";
-import { CountryComparisonProvider } from "utils/context/CountryComparisonContext";
 import {
   HCDGenderIndexProvider,
   useHCDGenderIndexContext,

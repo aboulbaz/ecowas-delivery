@@ -28,6 +28,7 @@ import {
   MapContainer,
 } from "./HCDMap.style";
 import { FormattedMessage } from "react-intl";
+import { interpolateColor } from "utils/functions";
 
 const HCDMap: React.FC = () => {
   const queryClient = useQueryClient();
@@ -44,9 +45,11 @@ const HCDMap: React.FC = () => {
     isLoading,
   } = useMutation([GET_ALL_INDEX_KPIS], getAllIndexKpis, {
     onSuccess: (data) => {
-      let tmp = data.find((c) => c.country.id === 4)?.target2030Normalized;
+      let tmp = data.find((c) => c.country.id === 4)?.latestValueNormalized;
       setCaboVerde(tmp || 0);
-      tmp = data.find((c) => c.country.id === ECOWAS_DEFAULT_ID)?.target2030Normalized;
+      tmp = data.find(
+        (c) => c.country.id === ECOWAS_DEFAULT_ID
+      )?.latestValueNormalized;
       setECOWAS(tmp || 0);
     },
   });
@@ -80,10 +83,12 @@ const HCDMap: React.FC = () => {
             </MapMetricLabel>
           </div>
           <CaboVerdeWrapper>
-            <CaboVerdeCircle opacity={caboVerde * 100} />
+            <CaboVerdeCircle
+              color={interpolateColor(caboVerde)}
+            />
             Cabo Verde
           </CaboVerdeWrapper>
-          <ECOWASCircle opacity={ECOWAS * 100}>
+          <ECOWASCircle color={interpolateColor(ECOWAS)}>
             <ECOWASText>ECOWAS</ECOWASText>
           </ECOWASCircle>
         </MapMetricWrapper>
@@ -94,18 +99,16 @@ const HCDMap: React.FC = () => {
         >
           <g>
             {countries.map((country, index) => {
-              const tmp = data.find(
-                (c) => c.country.id === country.id
-              )?.target2030Normalized;
+              const tmp = data.find((c) => c.country.id === country.id);
               return (
                 <MapSVGPath
-                  opacity={tmp ? tmp * 100 : 0}
                   key={index}
                   id={country.label}
                   d={
                     CountryMapSvgAttributes[country.id] &&
                     CountryMapSvgAttributes[country.id].d
                   }
+                  color={interpolateColor(tmp?.latestValueNormalized || 0)}
                 />
               );
             })}
@@ -168,13 +171,13 @@ const HCDMap: React.FC = () => {
           {countries.map((country, index) => {
             const tmp = data.find(
               (c) => c.country.id === country.id
-            )?.target2030Normalized;
+            )?.latestValueNormalized;
             return (
               <>
                 <MapText
-                  opacity={tmp ? tmp * 100 : 0}
                   x={`${CountryMapSvgAttributes[country.id]?.cx || 0}`}
                   y={`${(CountryMapSvgAttributes[country.id]?.cy || 0) + 4}`}
+                  color={interpolateColor(tmp || 0)}
                 >
                   {country.label}
                 </MapText>

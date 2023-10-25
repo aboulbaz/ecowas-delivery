@@ -1,14 +1,11 @@
-import React, { useEffect } from "react";
+import React from "react";
 import {
   HCDGenderIndexTableCell,
   HCDGenderIndexTableRow,
   ValuedHCDGenderIndexTableCell,
 } from "./HCDGenderIndexCard.style";
-import { useMutation } from "react-query";
-import { GET_ALL_INDEX_KPIS } from "utils/api-requests/hcd-gender-index";
-import { getOverviewValues } from "utils/api-requests/overview";
 import { ICountry } from "utils/types";
-import styled from "@emotion/styled";
+import { interpolateColor } from "utils/functions";
 
 type Props = {
   country: ICountry;
@@ -27,28 +24,28 @@ const HCDGenderIndexRow: React.FC<Props> = ({ country }) => {
       <HCDGenderIndexTableCell>{country.label}</HCDGenderIndexTableCell>
       {HCDValue && (
         <ValuedHCDGenderIndexTableCell
-          opacity={HCDValue.target2030Normalized * 100}
+          color={interpolateColor(HCDValue.target2030Normalized)}
         >
           {HCDValue.target2030.toFixed(2)}
         </ValuedHCDGenderIndexTableCell>
       )}
       {HealtValue && (
         <ValuedHCDGenderIndexTableCell
-          opacity={HealtValue.target2030Normalized * 100}
+          color={interpolateColor(HealtValue.target2030Normalized)}
         >
           {HealtValue.target2030.toFixed(2)}
         </ValuedHCDGenderIndexTableCell>
       )}
       {EducationValue && (
         <ValuedHCDGenderIndexTableCell
-          opacity={EducationValue.target2030Normalized * 100}
+          color={interpolateColor(EducationValue.target2030Normalized)}
         >
           {EducationValue.target2030.toFixed(2)}
         </ValuedHCDGenderIndexTableCell>
       )}
       {EntrepreneurshipValue && (
         <ValuedHCDGenderIndexTableCell
-          opacity={EntrepreneurshipValue.target2030Normalized * 100}
+          color={interpolateColor(EntrepreneurshipValue.target2030Normalized)}
         >
           {EntrepreneurshipValue.target2030.toFixed(2)}
         </ValuedHCDGenderIndexTableCell>

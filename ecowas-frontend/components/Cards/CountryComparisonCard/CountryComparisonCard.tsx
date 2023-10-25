@@ -20,8 +20,6 @@ import { ICountry, IOverviewValues } from "utils/types";
 import { useCountryComparisonContext } from "utils/context/CountryComparisonContext";
 import { ECOWAS_DEFAULT_ID } from "utils/constants";
 import { Tooltip } from "@mui/material";
-import styled from "@emotion/styled";
-import { TooltipProps } from "react-leaflet";
 import { FormattedMessage } from "react-intl";
 
 type CountryComparisonCardProps = {

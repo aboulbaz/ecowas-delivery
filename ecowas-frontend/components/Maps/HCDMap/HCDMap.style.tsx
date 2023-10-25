@@ -48,12 +48,11 @@ export const MapMetricLabel = styled.p`
 `;
 
 type MapSVGPathProps = {
-  opacity: number;
+  color: string;
 };
 
 export const MapSVGPath = styled.path<MapSVGPathProps>`
-  opacity: ${({ opacity }) => `${opacity > 50 ? opacity : 100 - opacity}%`};
-  fill: ${({ opacity }) => (opacity > 50 ? "#00834f" : "#e0824e")};
+  fill: ${({ color }) => color};
   fill-opacity: 1;
   stroke: white;
   stroke-opacity: 1;
@@ -74,8 +73,7 @@ export const CaboVerdeWrapper = styled.div`
 `;
 
 export const CaboVerdeCircle = styled.div<MapSVGPathProps>`
-  background: ${({ opacity }) => (opacity > 50 ? "#00834f" : "#e0824e")};
-  opacity: ${({ opacity }) => `${opacity > 50 ? opacity : 100 - opacity}%`};
+  background: ${({ color }) => color};
   border-radius: 50%;
   height: 3rem;
   width: 3rem;
@@ -85,8 +83,7 @@ export const CaboVerdeCircle = styled.div<MapSVGPathProps>`
 
 export const ECOWASCircle = styled.div<MapSVGPathProps>`
   position: relative;
-  background: ${({ opacity }) => (opacity > 50 ? "#00834f" : "#e0824e")};
-  opacity: ${({ opacity }) => `${opacity > 50 ? opacity : 100 - opacity}%`};
+  background: ${({ color }) => color};
   display: flex;
   align-items: center;
   height: 6rem;

@@ -8,21 +8,16 @@ import {
 type Props = {
   targetValue: number;
   baseLine: number;
-  target2030: number;
 };
 
-const ChartValues: React.FC<Props> = ({
-  targetValue,
-  baseLine,
-  target2030,
-}) => {
+const ChartValues: React.FC<Props> = ({ targetValue, baseLine }) => {
   return (
     <ChartValueWrapper>
       <ChartValuesContainer>
-        <ChartValueTitle value={baseLine} maxValue={target2030}>
+        <ChartValueTitle value={baseLine}>
           {baseLine.toFixed(2)}
         </ChartValueTitle>
-        <ChartValueTitle isPrimary value={targetValue} maxValue={target2030}>
+        <ChartValueTitle isPrimary value={targetValue}>
           {targetValue.toFixed(2)}
         </ChartValueTitle>
       </ChartValuesContainer>
