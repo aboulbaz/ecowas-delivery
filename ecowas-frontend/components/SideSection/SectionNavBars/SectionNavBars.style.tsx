@@ -15,7 +15,7 @@ export const DimensionResultsNavBarTitle = styled.div`
   font-weight: 800;
   padding: 0.8rem;
   padding-right: 0;
-  max-width: 12rem;
+  max-width: 18rem;
   @media (max-width: 1400px) {
     font-size: 12px;
   }

@@ -9,7 +9,6 @@ import { KpiValuesModule } from './kpi_values/kpi_values.module';
 import { Country } from './country/entities/country.entity';
 import { Kpi } from './kpi/entities/kpi.entity';
 import { KpiValue } from './kpi_values/entities/kpi_value.entity';
-import { GenderKpiValue } from './gender_kpi_values/entities/kpi_value.entity';
 import { GenderKpiValuesModule } from './gender_kpi_values/gender_kpi_values.module';
 
 @Module({
@@ -24,7 +23,7 @@ import { GenderKpiValuesModule } from './gender_kpi_values/gender_kpi_values.mod
       username: process.env.POSTGRES_USER,
       password: process.env.POSTGRES_PASSWORD,
       database: process.env.POSTGRES_DB,
-      entities: [Country, Kpi, KpiValue, GenderKpiValue],
+      entities: [Country, Kpi, KpiValue],
       migrations: ['../migrations'],
       synchronize: true,
       // logging: 'all',

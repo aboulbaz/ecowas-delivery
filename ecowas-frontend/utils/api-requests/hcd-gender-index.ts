@@ -28,7 +28,7 @@ export const getAllIndexKpis = async (
 };
 
 export const getAllMainKpis = async (): Promise<IKPI[]> => {
-  return EcowasClient.get(`kpi/main`);
+  return EcowasClient.get(`kpi/gender-index/main`);
 };
 
 export const getCountriesKpisIndex = async (): Promise<ICountry[]> => {

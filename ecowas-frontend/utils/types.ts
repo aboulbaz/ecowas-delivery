@@ -1,4 +1,4 @@
-import { IndexEnum, LANGUAGES } from "./constants";
+import { IndexEnum, IndexEnumHCDGenderIndex, LANGUAGES } from "./constants";
 import HCDIndesIcon from "public/assets/icons/integrated-hcd-index-icon.svg";
 import HealthIcon from "public/assets/icons/icon-health.svg";
 import EducationIcon from "public/assets/icons/education-icon.svg";
@@ -68,6 +68,7 @@ export interface IOverviewValues {
   directionGoodPerformance: number;
   country: ICountry;
   kpi: IKPI;
+  associatedKpi?: IOverviewValues;
 }
 
 export type IconDIspatcherValue = {
@@ -89,6 +90,28 @@ export const IndexDispatcher: Record<IndexEnum, IconDIspatcherValue> = {
     title: "overview.education",
   },
   [IndexEnum.ENTREPRENEURSHIP]: {
+    icon: EntrepreneurshipIcon,
+    title: "overview.entrepreneurship",
+  },
+};
+
+export const IndexHcdGenderDispatcher: Record<
+  IndexEnumHCDGenderIndex,
+  IconDIspatcherValue
+> = {
+  [IndexEnumHCDGenderIndex.HCD_INTEGRATED_INDEX]: {
+    icon: HCDIndesIcon,
+    title: "overview.integrated-hcd-index",
+  },
+  [IndexEnumHCDGenderIndex.HEALTH]: {
+    icon: HealthIcon,
+    title: "overview.health",
+  },
+  [IndexEnumHCDGenderIndex.EDUCATION]: {
+    icon: EducationIcon,
+    title: "overview.education",
+  },
+  [IndexEnumHCDGenderIndex.ENTREPRENEURSHIP]: {
     icon: EntrepreneurshipIcon,
     title: "overview.entrepreneurship",
   },

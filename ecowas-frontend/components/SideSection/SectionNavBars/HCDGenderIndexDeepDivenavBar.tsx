@@ -8,16 +8,16 @@ import {
   DropdownIconWrapper,
   NavBarWrapper,
 } from "./SectionNavBars.style";
-import { IKPI, IndexDispatcher } from "utils/types";
+import { IKPI, IndexHcdGenderDispatcher } from "utils/types";
 import { FormattedMessage } from "react-intl";
-import { IndexEnum } from "utils/constants";
+import { IndexEnumHCDGenderIndex } from "utils/constants";
 import DropdownIcon from "public/assets/icons/dropwdown-icon.svg";
 import Image from "next/image";
 import { useHCDGenderIndexDeepDiveContext } from "utils/context/HCDGenderIndexDeepDiveContext";
 import { useMutation } from "react-query";
 import {
-  GET_NESTED_KPIS,
-  getNestedKPIs,
+  GET_NESTED_HCD_KPIS,
+  getNestedHcdGenderKPIs,
 } from "utils/api-requests/hcd-gender-deep-dive";
 
 const HCDGenderIndexDeepDivenavBar: React.FC = () => {
@@ -32,8 +32,8 @@ const HCDGenderIndexDeepDivenavBar: React.FC = () => {
   };
 
   const { mutate: getNestedKPIsRequest } = useMutation(
-    [GET_NESTED_KPIS],
-    getNestedKPIs,
+    [GET_NESTED_HCD_KPIS],
+    getNestedHcdGenderKPIs,
     {
       onSuccess: (data) => {
         setKpis(data);
@@ -51,7 +51,7 @@ const HCDGenderIndexDeepDivenavBar: React.FC = () => {
     else handleClose();
   };
 
-  const handleChange = (index: IndexEnum) => {
+  const handleChange = (index: IndexEnumHCDGenderIndex) => {
     updateIndex(index);
     handleClose();
   };
@@ -63,9 +63,9 @@ const HCDGenderIndexDeepDivenavBar: React.FC = () => {
   return (
     <NavBarWrapper>
       <DimensionResultsNavBarWrapper onClick={clickDropDown}>
-        <Image src={IndexDispatcher[index]?.icon} alt="" height={60} />
+        <Image src={IndexHcdGenderDispatcher[index]?.icon} alt="" height={60} />
         <DimensionResultsNavBarTitle>
-          <FormattedMessage id={IndexDispatcher[index]?.title} />
+          <FormattedMessage id={IndexHcdGenderDispatcher[index]?.title} />
         </DimensionResultsNavBarTitle>
         <DropdownIconWrapper>
           <Image src={DropdownIcon} alt={""} width={15} />
@@ -77,18 +77,24 @@ const HCDGenderIndexDeepDivenavBar: React.FC = () => {
         onClose={handleClose}
       >
         <CustomMenuItem
-          onClick={() => handleChange(IndexEnum.HCD_INTEGRATED_INDEX)}
+          onClick={() =>
+            handleChange(IndexEnumHCDGenderIndex.HCD_INTEGRATED_INDEX)
+          }
         >
           <FormattedMessage id={"overview.integrated-hcd-index"} />
         </CustomMenuItem>
-        <CustomMenuItem onClick={() => handleChange(IndexEnum.HEALTH)}>
+        <CustomMenuItem
+          onClick={() => handleChange(IndexEnumHCDGenderIndex.HEALTH)}
+        >
           <FormattedMessage id={"overview.health"} />
         </CustomMenuItem>
-        <CustomMenuItem onClick={() => handleChange(IndexEnum.EDUCATION)}>
+        <CustomMenuItem
+          onClick={() => handleChange(IndexEnumHCDGenderIndex.EDUCATION)}
+        >
           <FormattedMessage id={"overview.education"} />
         </CustomMenuItem>
         <CustomMenuItem
-          onClick={() => handleChange(IndexEnum.ENTREPRENEURSHIP)}
+          onClick={() => handleChange(IndexEnumHCDGenderIndex.ENTREPRENEURSHIP)}
         >
           <FormattedMessage id={"overview.entrepreneurship"} />
         </CustomMenuItem>

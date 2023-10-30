@@ -6,6 +6,7 @@ services:
       context: ecowas/
       dockerfile: Dockerfile
     container_name: data_backend
+    restart: on-failure
     networks:
       - ecowas_network
     depends_on:

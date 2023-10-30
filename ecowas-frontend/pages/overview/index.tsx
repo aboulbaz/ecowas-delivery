@@ -13,6 +13,7 @@ import {
 } from "utils/api-requests/overview";
 import {
   ECOWAS_DEFAULT_ID,
+  IndexEnum,
   ProgressEnum,
   ProgressIconDispatcher,
   intlMessagesDispatcher,
@@ -51,11 +52,29 @@ const OverviewPageCards: React.FC = () => {
     mutate: getOveviewValue,
     isLoading,
   } = useMutation([GET_OVERVIEW_VALUES], getOverviewValues);
+
   useEffect(() => {
     getOveviewValue(country?.id || ECOWAS_DEFAULT_ID);
   }, [country, getOveviewValue]);
 
-  console.log("values", values);
+  const progressIconHandler = (progressMade) => {
+    return progressMade > 0
+      ? ProgressIconDispatcher[ProgressEnum.UP]
+      : progressMade === 0
+      ? ProgressIconDispatcher[ProgressEnum.NEUTRAL]
+      : ProgressIconDispatcher[ProgressEnum.DOWN];
+  };
+
+  const HCDValue = values?.find(
+    (val) => val.kpi.id === IndexEnum.HCD_INTEGRATED_INDEX
+  );
+  const HealtValue = values?.find((val) => val.kpi.id === IndexEnum.HEALTH);
+  const EducationValue = values?.find(
+    (val) => val.kpi.id === IndexEnum.EDUCATION
+  );
+  const EntrepreneurshipValue = values?.find(
+    (val) => val.kpi.id === IndexEnum.ENTREPRENEURSHIP
+  );
 
   return country ? (
     <OverviewPageWrapper>
@@ -64,29 +83,84 @@ const OverviewPageCards: React.FC = () => {
           <CircularProgress color="success" />
         </CicularLoaderWrapper>
       ) : (
-        values?.map((value) => {
-          const progressObject =
-            value.progressMade > 0
-              ? ProgressIconDispatcher[ProgressEnum.UP]
-              : value.progressMade === 0
-              ? ProgressIconDispatcher[ProgressEnum.NEUTRAL]
-              : ProgressIconDispatcher[ProgressEnum.DOWN];
-          return (
+        <>
+          {HCDValue && (
             <OverviewCard
-              key={value.id}
-              id={value.kpi.id}
-              icon={IconDispatcher[value.kpi.id].icon}
-              progressIcon={progressObject.icon}
-              color={progressObject.color}
-              title={value.kpi[LanguageDispatcher[language].label]}
-              progress={value.progressMade}
-              latestValue={value.latestValue}
-              targetValue={value.targetLatestValue}
-              baseLine={value.baseline}
-              target2030={value.target2030}
+              key={HCDValue.id}
+              id={HCDValue.kpi.id}
+              icon={IconDispatcher[HCDValue.kpi.id].icon}
+              progressIcon={progressIconHandler(HCDValue.progressMade).icon}
+              color={progressIconHandler(HCDValue.progressMade).color}
+              title={HCDValue.kpi[LanguageDispatcher[language].label]}
+              progress={HCDValue.progressMade}
+              latestValue={HCDValue.latestValue}
+              targetValue={HCDValue.targetLatestValue}
+              baseLine={HCDValue.baseline}
+              target2030={HCDValue.target2030}
+              latestValueHcdGenderIndex={HCDValue.associatedKpi?.latestValue}
             />
-          );
-        })
+          )}
+          {HealtValue && (
+            <OverviewCard
+              key={HealtValue.id}
+              id={HealtValue.kpi.id}
+              icon={IconDispatcher[HealtValue.kpi.id].icon}
+              progressIcon={progressIconHandler(HealtValue.progressMade).icon}
+              color={progressIconHandler(HealtValue.progressMade).color}
+              title={HealtValue.kpi[LanguageDispatcher[language].label]}
+              progress={HealtValue.progressMade}
+              latestValue={HealtValue.latestValue}
+              targetValue={HealtValue.targetLatestValue}
+              baseLine={HealtValue.baseline}
+              target2030={HealtValue.target2030}
+              latestValueHcdGenderIndex={HealtValue.associatedKpi?.latestValue}
+            />
+          )}
+          {EntrepreneurshipValue && (
+            <OverviewCard
+              key={EntrepreneurshipValue.id}
+              id={EntrepreneurshipValue.kpi.id}
+              icon={IconDispatcher[EntrepreneurshipValue.kpi.id].icon}
+              progressIcon={
+                progressIconHandler(EntrepreneurshipValue.progressMade).icon
+              }
+              color={
+                progressIconHandler(EntrepreneurshipValue.progressMade).color
+              }
+              title={
+                EntrepreneurshipValue.kpi[LanguageDispatcher[language].label]
+              }
+              progress={EntrepreneurshipValue.progressMade}
+              latestValue={EntrepreneurshipValue.latestValue}
+              targetValue={EntrepreneurshipValue.targetLatestValue}
+              baseLine={EntrepreneurshipValue.baseline}
+              target2030={EntrepreneurshipValue.target2030}
+              latestValueHcdGenderIndex={
+                EntrepreneurshipValue.associatedKpi?.latestValue
+              }
+            />
+          )}
+          {EducationValue && (
+            <OverviewCard
+              key={EducationValue.id}
+              id={EducationValue.kpi.id}
+              icon={IconDispatcher[EducationValue.kpi.id].icon}
+              progressIcon={
+                progressIconHandler(EducationValue.progressMade).icon
+              }
+              color={progressIconHandler(EducationValue.progressMade).color}
+              title={EducationValue.kpi[LanguageDispatcher[language].label]}
+              progress={EducationValue.progressMade}
+              latestValue={EducationValue.latestValue}
+              targetValue={EducationValue.targetLatestValue}
+              baseLine={EducationValue.baseline}
+              target2030={EducationValue.target2030}
+              latestValueHcdGenderIndex={
+                EducationValue.associatedKpi?.latestValue
+              }
+            />
+          )}
+        </>
       )}
     </OverviewPageWrapper>
   ) : (

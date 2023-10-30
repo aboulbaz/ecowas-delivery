@@ -24,3 +24,9 @@ export const getOverviewValues = async (
 ): Promise<IOverviewValues[]> => {
   return EcowasClient.get(`kpi-values/index/${countryId}`);
 };
+
+export const getOverviewValuesGenderIndex = async (
+  countryId: number
+): Promise<IOverviewValues[]> => {
+  return EcowasClient.get(`gender-kpi-values/index/${countryId}`);
+};

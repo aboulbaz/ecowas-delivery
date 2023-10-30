@@ -21,7 +21,6 @@ import { useCountryComparisonContext } from "utils/context/CountryComparisonCont
 import { ECOWAS_DEFAULT_ID } from "utils/constants";
 import { Tooltip } from "@mui/material";
 import { FormattedMessage } from "react-intl";
-// import { FormattedMessage } from "react-intl";
 
 type CountryComparisonCardProps = {
   data: IOverviewValues[];

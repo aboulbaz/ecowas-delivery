@@ -5,7 +5,7 @@ import { Column, Entity, OneToMany, PrimaryColumn } from 'typeorm';
 export class Country {
   @PrimaryColumn()
   id: number;
-  @Column()
+  @Column({ nullable: true })
   label: string;
 
   @OneToMany(() => KpiValue, (kpiValue) => kpiValue.country)

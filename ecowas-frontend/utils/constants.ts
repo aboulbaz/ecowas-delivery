@@ -39,10 +39,17 @@ export const titleDispatcher: Record<Routes, string> = {
 };
 
 export enum IndexEnum {
+  HCD_INTEGRATED_INDEX = 22,
   HEALTH = 1,
   EDUCATION = 9,
   ENTREPRENEURSHIP = 18,
-  HCD_INTEGRATED_INDEX = 22,
+}
+
+export enum IndexEnumHCDGenderIndex {
+  HEALTH = 24,
+  EDUCATION = 25,
+  ENTREPRENEURSHIP = 	26,
+  HCD_INTEGRATED_INDEX = 23,
 }
 
 export enum ProgressEnum {

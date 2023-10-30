@@ -45,11 +45,11 @@ const HCDMap: React.FC = () => {
     isLoading,
   } = useMutation([GET_ALL_INDEX_KPIS], getAllIndexKpis, {
     onSuccess: (data) => {
-      let tmp = data.find((c) => c.country.id === 4)?.latestValueNormalized;
+      let tmp = (data.find((c) => c.country.id === 4)?.latestValue || 0) / 1.5;
       setCaboVerde(tmp || 0);
-      tmp = data.find(
-        (c) => c.country.id === ECOWAS_DEFAULT_ID
-      )?.latestValueNormalized;
+      tmp =
+        (data.find((c) => c.country.id === ECOWAS_DEFAULT_ID)?.latestValue ||
+          0) / 1.5;
       setECOWAS(tmp || 0);
     },
   });
@@ -83,9 +83,7 @@ const HCDMap: React.FC = () => {
             </MapMetricLabel>
           </div>
           <CaboVerdeWrapper>
-            <CaboVerdeCircle
-              color={interpolateColor(caboVerde)}
-            />
+            <CaboVerdeCircle color={interpolateColor(caboVerde)} />
             Cabo Verde
           </CaboVerdeWrapper>
           <ECOWASCircle color={interpolateColor(ECOWAS)}>
@@ -108,7 +106,7 @@ const HCDMap: React.FC = () => {
                     CountryMapSvgAttributes[country.id] &&
                     CountryMapSvgAttributes[country.id].d
                   }
-                  color={interpolateColor(tmp?.latestValueNormalized || 0)}
+                  color={interpolateColor((tmp?.latestValue || 0) / 1.5)}
                 />
               );
             })}
@@ -169,9 +167,9 @@ const HCDMap: React.FC = () => {
             />
           </g>
           {countries.map((country, index) => {
-            const tmp = data.find(
-              (c) => c.country.id === country.id
-            )?.latestValueNormalized;
+            const tmp =
+              (data.find((c) => c.country.id === country.id)?.latestValue ||
+                0) / 1.5;
             return (
               <>
                 <MapText

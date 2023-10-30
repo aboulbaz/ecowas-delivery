@@ -14,12 +14,4 @@ export class CountryController {
   async findHcdGenderIndex() {
     return await this.countryService.findHcdGenderIndex();
   }
-
-  /* 
-  HTTP REQUESTS VERBS:
-   - GET REQUEST
-   - POST REQUEST
-   - PUT REQUEST
-   - DELETE REQUEST
-  */
 }

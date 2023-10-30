@@ -13,7 +13,6 @@ import {
 
 const HCDGenderIndexPage = () => {
   const { isDimensionView } = useHCDGenderIndexContext();
-  const { language } = useLanguageContext();
 
   return (
     <Layout>

@@ -6,6 +6,7 @@ import EntrepreneurshipIcon from "public/assets/icons/entrepreneurship-icon.svg"
 import { IKPI, IOverviewValues } from "utils/types";
 
 export const GET_NESTED_KPIS = "GET_NESTED_KPIS";
+export const GET_NESTED_HCD_KPIS = "GET_NESTED_HCD_KPIS";
 
 type IconDIspatcherValue = {
   icon: any;
@@ -21,6 +22,11 @@ export const IconDispatcher: Record<number, IconDIspatcherValue> = {
 
 export const getNestedKPIs = async (id: number): Promise<IKPI[]> => {
   return await EcowasClient.get(`kpi/${id}/nested`);
+};
+
+
+export const getNestedHcdGenderKPIs = async (id: number): Promise<IKPI[]> => {
+  return await EcowasClient.get(`kpi/gender-index/${id}/nested`);
 };
 
 export const getKpiData = async (id: number): Promise<IOverviewValues[]> => {

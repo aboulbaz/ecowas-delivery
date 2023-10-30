@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import React, { useState } from "react";
-import { IndexEnum } from "utils/constants";
+import { IndexEnumHCDGenderIndex } from "utils/constants";
 import { useHCDGenderIndexContext } from "utils/context/HCDGenderIndexContext";
 import HCDGenderIndexToggle from "./HCDGenderIndexToggle";
 import { FormattedMessage } from "react-intl";
@@ -50,26 +50,30 @@ const HCDGenderIndexnavBar: React.FC = () => {
       {isDimensionView && (
         <HCDGenderIndexnavBarTabs>
           <HCDGenderIndexnavBarSingleTab
-            isClicked={index === IndexEnum.HCD_INTEGRATED_INDEX}
-            onClick={() => updateIndex(IndexEnum.HCD_INTEGRATED_INDEX)}
+            isClicked={index === IndexEnumHCDGenderIndex.HCD_INTEGRATED_INDEX}
+            onClick={() =>
+              updateIndex(IndexEnumHCDGenderIndex.HCD_INTEGRATED_INDEX)
+            }
           >
             <FormattedMessage id={"overview.integrated-hcd-index"} />
           </HCDGenderIndexnavBarSingleTab>
           <HCDGenderIndexnavBarSingleTab
-            isClicked={index === IndexEnum.HEALTH}
-            onClick={() => updateIndex(IndexEnum.HEALTH)}
+            isClicked={index === IndexEnumHCDGenderIndex.HEALTH}
+            onClick={() => updateIndex(IndexEnumHCDGenderIndex.HEALTH)}
           >
             <FormattedMessage id={"overview.health"} />
           </HCDGenderIndexnavBarSingleTab>
           <HCDGenderIndexnavBarSingleTab
-            isClicked={index === IndexEnum.EDUCATION}
-            onClick={() => updateIndex(IndexEnum.EDUCATION)}
+            isClicked={index === IndexEnumHCDGenderIndex.EDUCATION}
+            onClick={() => updateIndex(IndexEnumHCDGenderIndex.EDUCATION)}
           >
             <FormattedMessage id={"overview.education"} />
           </HCDGenderIndexnavBarSingleTab>
           <HCDGenderIndexnavBarSingleTab
-            isClicked={index === IndexEnum.ENTREPRENEURSHIP}
-            onClick={() => updateIndex(IndexEnum.ENTREPRENEURSHIP)}
+            isClicked={index === IndexEnumHCDGenderIndex.ENTREPRENEURSHIP}
+            onClick={() =>
+              updateIndex(IndexEnumHCDGenderIndex.ENTREPRENEURSHIP)
+            }
           >
             <FormattedMessage id={"overview.entrepreneurship"} />
           </HCDGenderIndexnavBarSingleTab>

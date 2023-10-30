@@ -9,6 +9,7 @@ kpi_value:
   COLUMN_MAPPING: # File column name -> Corresponding column name in table
     "Country": "country_id"
     "KPI": "kpi_id"
+    "Description": "description"
     "Ranking_based_on_latest_value": "ranking"
     "Baseline": "baseline"
     "Latest_value": "latest_value"
@@ -40,7 +41,7 @@ kpi:
   HEADER: 0
   USECOLS: #[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14]
   SKIPROWS: 0
-  DELIMITER: ","
+  DELIMITER: ";"
   DESTINATION_TABLE: "kpi"
   COLUMN_MAPPING:
     "id": "id"
@@ -51,3 +52,5 @@ kpi:
     "kpi_description_french": "kpi_description_french"
     "label_portuguese": "label_portuguese"
     "kpi_description_portuguese": "kpi_description_portuguese"
+    "is_gender_index_kpi": "is_gender_index_kpi"
+    "associated_gender_kpi_id": "associated_gender_kpi_id"

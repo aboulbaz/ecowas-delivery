@@ -16,11 +16,23 @@ export class KpiValue {
   ranking: number;
   @Column({ type: 'float', nullable: true })
   baseline: number;
-  @Column({ type: 'float', default: 0, name: 'baseline_normalized' })
+  @Column({
+    type: 'float',
+    default: 0,
+    name: 'baseline_normalized',
+    nullable: true,
+  })
   baselineNormalized: number;
+  @Column({ nullable: true })
+  description: string;
   @Column({ type: 'float', name: 'latest_value', nullable: true })
   latestValue: number;
-  @Column({ type: 'float', default: 0, name: 'latest_data_normalized' })
+  @Column({
+    type: 'float',
+    default: 0,
+    name: 'latest_data_normalized',
+    nullable: true,
+  })
   latestValueNormalized: number;
   @Column({ type: 'float', name: 'target_latest_value', nullable: true })
   targetLatestValue: number;
@@ -32,7 +44,12 @@ export class KpiValue {
   targetLatestValueNormalized: number;
   @Column({ type: 'float', name: 'target2030', nullable: true })
   target2030: number;
-  @Column({ type: 'float', default: 0, name: 'target2030_normalized' })
+  @Column({
+    type: 'float',
+    default: 0,
+    name: 'target2030_normalized',
+    nullable: true,
+  })
   target2030Normalized: number;
   @Column({ type: 'float', name: 'progress_made', nullable: true })
   progressMade: number;
@@ -41,13 +58,13 @@ export class KpiValue {
   @Column({ type: 'float', name: 'direction_good_performance', nullable: true })
   directionGoodPerformance: number;
   @ManyToOne(() => Kpi, (kpi) => kpi.id, {
-    nullable: false,
+    nullable: true,
     onDelete: 'CASCADE',
     onUpdate: 'CASCADE',
   })
   @JoinColumn({ name: 'kpi_id' })
   kpi: Kpi;
-  @ManyToOne(() => Country, (country) => country.id, { nullable: false })
+  @ManyToOne(() => Country, (country) => country.id, { nullable: true })
   @JoinColumn({ name: 'country_id' })
   country: Country;
 }

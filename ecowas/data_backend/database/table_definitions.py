@@ -13,14 +13,15 @@ class Country(Base):
 
 class Kpi(Base):
     __tablename__ = "kpi"
-
+    KPI_ID = "kpi.id"
     id = Column(Integer, primary_key=True)
     label = Column(String, nullable=True)
+    label_to_use_in_dash = Column(String, nullable=True)
     kpi_description = Column(String, nullable=True)
     parent_id = Column(
         Integer,
         ForeignKey(
-            "kpi.id", onupdate="CASCADE", ondelete="CASCADE", name="fk_kpi_parent"
+            KPI_ID, onupdate="CASCADE", ondelete="CASCADE", name="fk_kpi_parent"
         ),
         nullable=True,
     )
@@ -28,6 +29,14 @@ class Kpi(Base):
     kpi_description_french = Column(String, nullable=True)
     label_portuguese = Column(String, nullable=True)
     kpi_description_portuguese = Column(String, nullable=True)
+    is_gender_index_kpi = Column(Integer, primary_key=True)
+    associated_gender_kpi_id = Column(
+        Integer,
+        ForeignKey(
+            KPI_ID, onupdate="CASCADE", ondelete="CASCADE", name="fk_kpi_associated_gender_id"
+        ),
+        nullable=True,
+    )
 
 
 class KpiValue(Base):
@@ -53,6 +62,7 @@ class KpiValue(Base):
         ),
         nullable=False,
     )
+    description = Column(String, nullable=True)
     baseline = Column(Float, nullable=True)
     latest_value = Column(Float, nullable=True)
     target_latest_value = Column(Float, nullable=True)

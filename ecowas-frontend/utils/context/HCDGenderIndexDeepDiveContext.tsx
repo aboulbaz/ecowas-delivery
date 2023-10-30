@@ -1,20 +1,20 @@
 import React, { createContext, useReducer, useContext } from "react";
-import { IndexEnum } from "utils/constants";
+import { IndexEnumHCDGenderIndex } from "utils/constants";
 
 interface HCDGenderIndexDeepDiveStates {
   valueType: number;
-  index: IndexEnum;
+  index: IndexEnumHCDGenderIndex;
 }
 
 interface HCDGenderIndexDeepDiveContextProps
   extends HCDGenderIndexDeepDiveStates {
   setValueType: (value: number) => void;
-  updateIndex: (newIndex: IndexEnum) => void;
+  updateIndex: (newIndex: IndexEnumHCDGenderIndex) => void;
 }
 
 const initialState: HCDGenderIndexDeepDiveStates = {
   valueType: 2,
-  index: IndexEnum.HCD_INTEGRATED_INDEX,
+  index: IndexEnumHCDGenderIndex.HCD_INTEGRATED_INDEX,
 };
 
 type Action =
@@ -22,7 +22,7 @@ type Action =
       type: "SET_VALUE_TYPE";
       payload: number;
     }
-  | { type: "UPDATE_KPI_INDEX"; payload: IndexEnum };
+  | { type: "UPDATE_KPI_INDEX"; payload: IndexEnumHCDGenderIndex };
 
 const reducer = (state: HCDGenderIndexDeepDiveStates, action: Action) => {
   switch (action.type) {
@@ -52,7 +52,7 @@ const HCDGenderIndexDeepDiveProvider = ({ children }) => {
     dispatch({ type: "SET_VALUE_TYPE", payload: value });
   };
 
-  const updateIndex = (newIndex: IndexEnum) => {
+  const updateIndex = (newIndex: IndexEnumHCDGenderIndex) => {
     dispatch({ type: "UPDATE_KPI_INDEX", payload: newIndex });
   };
 

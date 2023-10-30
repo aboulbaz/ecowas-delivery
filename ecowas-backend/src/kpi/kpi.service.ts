@@ -12,7 +12,19 @@ export class KpiService {
 
   async findAllKPIs() {
     return await this.kpiRepository.find({
-      relations: ['parent'],
+      where: {
+        isGenderIndexKPI: 0,
+      },
+      relations: ['parent', 'associatedGenderIndexKpi'],
+    });
+  }
+
+  async findAllGenderIndexKPIs() {
+    return await this.kpiRepository.find({
+      where: {
+        isGenderIndexKPI: 1,
+      },
+      relations: ['parent', 'associatedGenderIndexKpi'],
     });
   }
 
@@ -20,6 +32,16 @@ export class KpiService {
     return await this.kpiRepository.find({
       where: {
         parent: IsNull(),
+        isGenderIndexKPI: 0,
+      },
+    });
+  }
+
+  async findAllMainGenderIndexKPIs() {
+    return await this.kpiRepository.find({
+      where: {
+        parent: IsNull(),
+        isGenderIndexKPI: 1,
       },
     });
   }
@@ -29,9 +51,22 @@ export class KpiService {
       where: {
         parent: {
           id,
+          isGenderIndexKPI: 0,
         },
       },
-      relations: ['parent'],
+      relations: ['parent', 'associatedGenderIndexKpi'],
+    });
+  }
+
+  async findAllNestedGenderKpis(id: number) {
+    return await this.kpiRepository.find({
+      where: {
+        parent: {
+          id,
+          isGenderIndexKPI: 1,
+        },
+      },
+      relations: ['parent', 'associatedGenderIndexKpi'],
     });
   }
 }

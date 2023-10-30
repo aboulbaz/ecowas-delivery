@@ -1,4 +1,4 @@
-import { HorizontalOverviewChart, OverviewChart } from "components/Charts";
+import { OverviewChart } from "components/Charts";
 import React from "react";
 import {
   OverviewCardIcon,
@@ -9,7 +9,7 @@ import {
   OvervireCardProgressValue,
   OvervireCardProgressWrapper,
 } from "./OverviewCard.style";
-import { FormattedMessage, useIntl } from "react-intl";
+import { FormattedMessage } from "react-intl";
 import HCDGenderIndexCard from "./HCDGenderIndexCard";
 import BetaHorizontalOverviewChart from "components/Charts/OverviewCharts/BetaHorizontalOverviewChart";
 
@@ -24,6 +24,7 @@ type Props = {
   targetValue: number;
   baseLine: number;
   target2030: number;
+  latestValueHcdGenderIndex?: number;
 };
 
 const OverviewCard: React.FC<Props> = ({
@@ -37,9 +38,8 @@ const OverviewCard: React.FC<Props> = ({
   targetValue,
   baseLine,
   target2030,
+  latestValueHcdGenderIndex
 }) => {
-  const intl = useIntl();
-
   return (
     <OverviewCardWrapper>
       <OverviewCardIconWrapper>
@@ -64,10 +64,10 @@ const OverviewCard: React.FC<Props> = ({
         targetValue={targetValue * 100}
       />
 
-      {latestValue && id !== 22 && title !== "" && (
+      {latestValueHcdGenderIndex && id !== 22 && title !== "" && (
         <HCDGenderIndexCard
           title={title}
-          latestValue={+latestValue?.toFixed(2)}
+          latestValue={+latestValueHcdGenderIndex?.toFixed(2)}
         />
       )}
     </OverviewCardWrapper>

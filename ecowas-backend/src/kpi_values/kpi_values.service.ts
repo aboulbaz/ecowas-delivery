@@ -23,6 +23,7 @@ export class KpiValuesService {
         where: {
           kpi: {
             parent: IsNull(),
+            isGenderIndexKPI: 1,
           },
         },
         relations: ['kpi', 'country'],
@@ -47,6 +48,7 @@ export class KpiValuesService {
           kpi: {
             id,
             parent: IsNull(),
+            isGenderIndexKPI: 0,
           },
         },
         relations: ['kpi', 'country'],
@@ -60,24 +62,33 @@ export class KpiValuesService {
   async findKpiIndexByCountry(country: number) {
     try {
       const kpiIndex = await this.kpiValueRepository.find({
-        join: {
-          alias: 'kpiValue',
-          innerJoinAndSelect: {
-            kpi: 'kpiValue.kpi',
-            country: 'kpiValue.country',
-          },
-        },
         where: {
           country: {
             id: country,
           },
           kpi: {
             parent: IsNull(),
+            isGenderIndexKPI: 0,
           },
         },
-        relations: ['kpi', 'country'],
+        relations: ['kpi', 'country', 'kpi.associatedGenderIndexKpi'],
       });
-      return kpiIndex;
+
+      const promises = kpiIndex.map(async (kpi) => {
+        const associatedKpi = await this.kpiValueRepository.findOne({
+          where: {
+            country: {
+              id: country,
+            },
+            kpi: {
+              id: kpi.kpi.associatedGenderIndexKpi.id,
+            },
+          },
+        });
+        return { ...kpi, associatedKpi };
+      });
+
+      return await Promise.all(promises);
     } catch (error) {
       throw new NotFoundException();
     }
@@ -89,6 +100,9 @@ export class KpiValuesService {
         where: {
           country: {
             id: country,
+          },
+          kpi: {
+            isGenderIndexKPI: 0,
           },
         },
         relations: ['country', 'kpi', 'kpi.parent'],
@@ -115,6 +129,7 @@ export class KpiValuesService {
           },
           kpi: {
             id: kpi,
+            isGenderIndexKPI: 0,
           },
         },
         relations: ['kpi', 'country', 'kpi.parent'],
@@ -131,6 +146,7 @@ export class KpiValuesService {
         where: {
           kpi: {
             id: kpi,
+            isGenderIndexKPI: 0,
           },
         },
         relations: ['kpi', 'country'],
@@ -160,10 +176,12 @@ export class KpiValuesService {
           kpi: [
             {
               id: kpi,
+              isGenderIndexKPI: 0,
             },
             {
               parent: {
                 id: kpi,
+                isGenderIndexKPI: 0,
               },
             },
           ],
@@ -189,6 +207,7 @@ export class KpiValuesService {
         where: {
           kpi: {
             parent: IsNull(),
+            isGenderIndexKPI: 0,
           },
         },
         relations: ['kpi', 'country'],

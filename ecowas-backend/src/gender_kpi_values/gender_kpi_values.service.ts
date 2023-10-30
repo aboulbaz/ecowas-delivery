@@ -1,28 +1,22 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { GenderKpiValue } from './entities/kpi_value.entity';
 import { IsNull, Repository } from 'typeorm';
+import { KpiValue } from 'src/kpi_values/entities/kpi_value.entity';
 
 @Injectable()
 export class GenderKpiValuesService {
   constructor(
-    @InjectRepository(GenderKpiValue)
-    private kpiValueRepository: Repository<GenderKpiValue>,
+    @InjectRepository(KpiValue)
+    private kpiValueRepository: Repository<KpiValue>,
   ) {}
 
   async findAllKpiIndexValues() {
     try {
       const kpiIndex = await this.kpiValueRepository.find({
-        join: {
-          alias: 'kpiValue',
-          innerJoinAndSelect: {
-            kpi: 'kpiValue.kpi',
-            country: 'kpiValue.country',
-          },
-        },
         where: {
           kpi: {
             parent: IsNull(),
+            isGenderIndexKPI: 1,
           },
         },
         relations: ['kpi', 'country'],
@@ -36,17 +30,11 @@ export class GenderKpiValuesService {
   async findAllKpiIndex(id: number) {
     try {
       const kpiIndex = await this.kpiValueRepository.find({
-        join: {
-          alias: 'kpiValue',
-          innerJoinAndSelect: {
-            kpi: 'kpiValue.kpi',
-            country: 'kpiValue.country',
-          },
-        },
         where: {
           kpi: {
             id,
             parent: IsNull(),
+            isGenderIndexKPI: 1,
           },
         },
         relations: ['kpi', 'country'],
@@ -73,6 +61,7 @@ export class GenderKpiValuesService {
           },
           kpi: {
             parent: IsNull(),
+            isGenderIndexKPI: 1,
           },
         },
         relations: ['kpi', 'country'],
@@ -86,11 +75,26 @@ export class GenderKpiValuesService {
   async findKpiByCountry(country: number) {
     try {
       const kpiIndex = await this.kpiValueRepository.find({
-        where: {
-          country: {
-            id: country,
+        where: [
+          {
+            country: {
+              id: country,
+            },
+            kpi: {
+              isGenderIndexKPI: 0,
+            },
           },
-        },
+          {
+            country: {
+              id: country,
+            },
+            kpi: {
+              parent: {
+                isGenderIndexKPI: 0,
+              },
+            },
+          },
+        ],
         relations: ['country', 'kpi', 'kpi.parent'],
       });
       return kpiIndex;
@@ -115,6 +119,7 @@ export class GenderKpiValuesService {
           },
           kpi: {
             id: kpi,
+            isGenderIndexKPI: 1,
           },
         },
         relations: ['kpi', 'country', 'kpi.parent'],
@@ -131,6 +136,7 @@ export class GenderKpiValuesService {
         where: {
           kpi: {
             id: kpi,
+            isGenderIndexKPI: 1,
           },
         },
         relations: ['kpi', 'country'],
@@ -160,10 +166,12 @@ export class GenderKpiValuesService {
           kpi: [
             {
               id: kpi,
+              isGenderIndexKPI: 1,
             },
             {
               parent: {
                 id: kpi,
+                isGenderIndexKPI: 1,
               },
             },
           ],
@@ -189,6 +197,7 @@ export class GenderKpiValuesService {
         where: {
           kpi: {
             parent: IsNull(),
+            isGenderIndexKPI: 1,
           },
         },
         relations: ['kpi', 'country'],

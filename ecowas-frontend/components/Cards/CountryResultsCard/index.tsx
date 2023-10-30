@@ -71,15 +71,15 @@ const CountryResultsCard: React.FC = () => {
               description={kpiValue.kpi[LanguageDispatcher[language].description]}
               valueType={valueType}
               baseline={+kpiValue.baseline?.toFixed(2)}
-              baselineNormalized={+kpiValue.baselineNormalized.toFixed(2)}
+              baselineNormalized={+kpiValue.baselineNormalized?.toFixed(2)}
               latestValue={+kpiValue.latestValue?.toFixed(2)}
-              latestValueNormalized={+kpiValue.latestValueNormalized.toFixed(2)}
+              latestValueNormalized={+kpiValue.latestValueNormalized?.toFixed(2)}
               targetForLatest={+kpiValue.targetLatestValue?.toFixed(2)}
               targetForLatestNormalized={
-                +kpiValue.targetLatestValueNormalized.toFixed(2)
+                +kpiValue.targetLatestValueNormalized?.toFixed(2)
               }
               target2030={+kpiValue.target2030?.toFixed(2)}
-              target2030Normalized={+kpiValue.target2030Normalized.toFixed(2)}
+              target2030Normalized={+kpiValue.target2030Normalized?.toFixed(2)}
               rank={kpiValue.ranking}
             />
           ))}

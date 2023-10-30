@@ -1,26 +1,26 @@
 import React, { createContext, useReducer, useContext } from "react";
-import { ECOWAS_DEFAULT_ID, IndexEnum } from "utils/constants";
+import { ECOWAS_DEFAULT_ID, IndexEnumHCDGenderIndex } from "utils/constants";
 
 interface GlobalStates {
   isDimensionView: boolean;
-  index: IndexEnum;
+  index: IndexEnumHCDGenderIndex;
   chosenCountry: number;
 }
 
 interface HCDGenderIndexContextProps extends GlobalStates {
   setIsDimensionView: (countries: boolean) => void;
-  updateIndex: (newIndex: IndexEnum) => void;
+  updateIndex: (newIndex: IndexEnumHCDGenderIndex) => void;
 }
 
 const initialState: GlobalStates = {
   isDimensionView: true,
-  index: IndexEnum.HCD_INTEGRATED_INDEX,
+  index: IndexEnumHCDGenderIndex.HCD_INTEGRATED_INDEX,
   chosenCountry: ECOWAS_DEFAULT_ID,
 };
 
 type Action =
   | { type: "SET_IS_DIMENSION_VIEW"; payload: boolean }
-  | { type: "UPDATE_KPI_INDEX"; payload: IndexEnum }
+  | { type: "UPDATE_KPI_INDEX"; payload: IndexEnumHCDGenderIndex }
   | { type: "UPDATE_COUNTRY_ID"; payload: number };
 
 const reducer = (state: GlobalStates, action: Action) => {
@@ -56,7 +56,7 @@ const HCDGenderIndexProvider = ({ children }) => {
     dispatch({ type: "SET_IS_DIMENSION_VIEW", payload: value });
   };
 
-  const updateIndex = (newIndex: IndexEnum) => {
+  const updateIndex = (newIndex: IndexEnumHCDGenderIndex) => {
     dispatch({ type: "UPDATE_KPI_INDEX", payload: newIndex });
   };
 

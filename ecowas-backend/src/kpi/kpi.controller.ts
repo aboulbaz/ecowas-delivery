@@ -10,13 +10,28 @@ export class KpiController {
     return this.kpiService.findAllKPIs();
   }
 
+  @Get('/gender-index')
+  findAllGenderIndexKPIs() {
+    return this.kpiService.findAllGenderIndexKPIs();
+  }
+
   @Get('/main')
   findAllMainKPIs() {
     return this.kpiService.findAllMainKPIs();
   }
 
+  @Get('/gender-index/main')
+  findAllMainGenderIndexKPIs() {
+    return this.kpiService.findAllMainGenderIndexKPIs();
+  }
+
   @Get(':kpi/nested')
   findAllKpiNestedKpis(@Param('kpi') kpi: number) {
     return this.kpiService.findAllNestedKpis(kpi);
+  }
+
+  @Get('/gender-index/:kpi/nested')
+  findAllNestedGenderKpis(@Param('kpi') kpi: number) {
+    return this.kpiService.findAllNestedGenderKpis(kpi);
   }
 }

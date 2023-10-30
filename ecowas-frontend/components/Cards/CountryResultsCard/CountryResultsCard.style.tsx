@@ -74,5 +74,5 @@ export const CountryResultsRankTag = styled.div`
   padding: 0.1rem 0.8rem;
   background: #ececec;
   border-radius: 25px;
-  width: 2rem;
+  /* width: 2rem; */
 `;

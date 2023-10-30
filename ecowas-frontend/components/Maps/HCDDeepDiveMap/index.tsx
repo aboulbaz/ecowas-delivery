@@ -105,10 +105,9 @@ const HCDDeepDiveMap: React.FC = () => {
         >
           <MapWrapper>
             {countries.map((country, index) => {
-              const tmp = data.find(
-                (c) => c.country.id === country.id
-              )?.latestValueNormalized;
-              const rand = +getRandomValue();
+              const tmp =
+                (data.find((c) => c.country.id === country.id)?.latestValue ||
+                  0) / 1.5;
               return (
                 <>
                   <MapSVGSelectedPath
@@ -184,9 +183,9 @@ const HCDDeepDiveMap: React.FC = () => {
             return (
               <>
                 <MapSVGCircle
-                  opacity={(tmp?.latestValueNormalized || 0) * 100}
+                  opacity={((tmp?.latestValue || 0) / 1.5) * 100}
                   key={index}
-                  color={interpolateColor(tmp?.latestValueNormalized || 0)}
+                  color={interpolateColor((tmp?.latestValue || 0) / 1.5)}
                   cx={`${
                     (CountryMapSvgAttributes[country.id]?.tx
                       ? CountryMapSvgAttributes[country.id]?.tx

@@ -20,6 +20,7 @@ export class CountryService {
           kpiValues: {
             kpi: {
               parent: IsNull(),
+              isGenderIndexKPI: 1,
             },
           },
         },
@@ -27,7 +28,6 @@ export class CountryService {
       });
       return countries;
     } catch (error) {
-      console.log(error);
       throw new NotFoundException();
     }
   }

@@ -6,17 +6,24 @@ import {
 } from "./HCDGenderIndexCard.style";
 import { ICountry } from "utils/types";
 import { interpolateColor } from "utils/functions";
+import { IndexEnumHCDGenderIndex } from "utils/constants";
 
 type Props = {
   country: ICountry;
 };
 
 const HCDGenderIndexRow: React.FC<Props> = ({ country }) => {
-  const HCDValue = country.kpiValues?.find((val) => val.kpi.id === 22);
-  const HealtValue = country.kpiValues?.find((val) => val.kpi.id === 1);
-  const EducationValue = country.kpiValues?.find((val) => val.kpi.id === 9);
+  const HCDValue = country.kpiValues?.find(
+    (val) => val.kpi.id === IndexEnumHCDGenderIndex.HCD_INTEGRATED_INDEX
+  );
+  const HealtValue = country.kpiValues?.find(
+    (val) => val.kpi.id === IndexEnumHCDGenderIndex.HEALTH
+  );
+  const EducationValue = country.kpiValues?.find(
+    (val) => val.kpi.id === IndexEnumHCDGenderIndex.EDUCATION
+  );
   const EntrepreneurshipValue = country.kpiValues?.find(
-    (val) => val.kpi.id === 18
+    (val) => val.kpi.id === IndexEnumHCDGenderIndex.ENTREPRENEURSHIP
   );
 
   return (
@@ -24,30 +31,30 @@ const HCDGenderIndexRow: React.FC<Props> = ({ country }) => {
       <HCDGenderIndexTableCell>{country.label}</HCDGenderIndexTableCell>
       {HCDValue && (
         <ValuedHCDGenderIndexTableCell
-          color={interpolateColor(HCDValue.target2030Normalized)}
+          color={interpolateColor(HCDValue.latestValue / 1.5)}
         >
-          {HCDValue.target2030.toFixed(2)}
+          {HCDValue.latestValue?.toFixed(2)}
         </ValuedHCDGenderIndexTableCell>
       )}
       {HealtValue && (
         <ValuedHCDGenderIndexTableCell
-          color={interpolateColor(HealtValue.target2030Normalized)}
+          color={interpolateColor(HealtValue.latestValue / 1.5)}
         >
-          {HealtValue.target2030.toFixed(2)}
+          {HealtValue.latestValue?.toFixed(2)}
         </ValuedHCDGenderIndexTableCell>
       )}
       {EducationValue && (
         <ValuedHCDGenderIndexTableCell
-          color={interpolateColor(EducationValue.target2030Normalized)}
+          color={interpolateColor(EducationValue.latestValue / 1.5)}
         >
-          {EducationValue.target2030.toFixed(2)}
+          {EducationValue.latestValue?.toFixed(2)}
         </ValuedHCDGenderIndexTableCell>
       )}
       {EntrepreneurshipValue && (
         <ValuedHCDGenderIndexTableCell
-          color={interpolateColor(EntrepreneurshipValue.target2030Normalized)}
+          color={interpolateColor(EntrepreneurshipValue.latestValue / 1.5)}
         >
-          {EntrepreneurshipValue.target2030.toFixed(2)}
+          {EntrepreneurshipValue.latestValue?.toFixed(2)}
         </ValuedHCDGenderIndexTableCell>
       )}
     </HCDGenderIndexTableRow>
