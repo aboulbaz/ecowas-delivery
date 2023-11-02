@@ -46,6 +46,7 @@ const DimensionResultsCard: React.FC = () => {
     getDimensionResults,
     {
       onSuccess: (data) => {
+        console.log("data", data);
         const parent = data.find((kpi) => !kpi.kpi.parent);
         setIndexKpi(parent);
         const children = data.filter((kpi) => kpi.kpi.parent);
@@ -87,9 +88,8 @@ const DimensionResultsCard: React.FC = () => {
                 </DimensionResultsCardSubTitle>
               </DimensionResultsCardTitleWrapper>
               <DimensionResultsChart
-                targetValue={indexKpi.target2030Normalized}
+                targetValue={indexKpi.targetLatestValue}
                 baseLine={indexKpi.baselineNormalized}
-                target2030={indexKpi.target2030Normalized}
                 latestValue={indexKpi.latestValueNormalized}
               />
               <DimensionResultsCardProgressCard
@@ -112,7 +112,7 @@ const DimensionResultsCard: React.FC = () => {
                       : ProgressEnum.DOWN
                   ].color
                 }
-                value={indexKpi.latestValueNormalized * 100}
+                latestValueNormalized={indexKpi.latestValueNormalized * 100}
                 targetValue={indexKpi.target2030Normalized * 100}
               />
             </DimensionResultsCardContainer>
@@ -141,9 +141,8 @@ const DimensionResultsCard: React.FC = () => {
                     </DimensionResultsCardSubTitle>
                   </DimensionResultsCardTitleWrapper>
                   <DimensionResultsChart
-                    targetValue={data.target2030Normalized}
+                    targetValue={data.targetLatestValueNormalized}
                     baseLine={data.baselineNormalized}
-                    target2030={data.target2030Normalized}
                     latestValue={data.latestValueNormalized}
                   />
                   <DimensionResultsCardProgressCard
@@ -166,8 +165,8 @@ const DimensionResultsCard: React.FC = () => {
                           : ProgressEnum.DOWN
                       ].color
                     }
-                    value={data.latestValueNormalized * 100}
-                    targetValue={(data.target2030Normalized + 0.5) * 100}
+                    latestValueNormalized={data.latestValueNormalized * 100}
+                    targetValue={data.targetLatestValueNormalized * 100}
                   />
                 </DimensionResultsCardContainer>
                 {hasLength && index != kpis.length - 1 && <DimensionResultHr />}

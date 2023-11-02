@@ -10,6 +10,10 @@ export const HorizontalOverviewChartWrapper = styled.div`
   margin-bottom: 2.4rem;
 `;
 
+type HorizontalOverviewChartBarProps = {
+  percentage: number;
+};
+
 export const HorizontalOverviewChartText = styled.div<HorizontalOverviewChartBarProps>`
   font-style: normal;
   font-weight: 800;
@@ -22,9 +26,6 @@ export const HorizontalOverviewChartText = styled.div<HorizontalOverviewChartBar
   left: ${({ percentage }) => `${percentage}%`};
 `;
 
-type HorizontalOverviewChartBarProps = {
-  percentage: number;
-};
 
 export const HorizontalOverviewChartBarContainer = styled.div`
   padding: 0;
@@ -43,14 +44,9 @@ export const HorizontalOverviewChartBarWrapper = styled.div<HorizontalOverviewCh
   padding: 0;
 `;
 
-type HorizontalOverviewChartBarTargetValueProps = {
-  value: number;
-  targetValue: number;
-};
-
-export const HorizontalOverviewChartBarTargetValueWrapper = styled.div<HorizontalOverviewChartBarTargetValueProps>`
+export const HorizontalOverviewChartBarTargetValueWrapper = styled.div`
   height: 100%;
-  width: 3rem;
+  width: calc(100% - 1.1rem);
   position: absolute;
 `;
 

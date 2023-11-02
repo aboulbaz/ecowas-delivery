@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Bar } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -23,14 +23,12 @@ ChartJS.register(CategoryScale, LinearScale, BarElement);
 type DimensionResultsChartProps = {
   targetValue: number;
   baseLine: number;
-  target2030: number;
   latestValue: number;
 };
 
 const DimensionResultsChart: React.FC<DimensionResultsChartProps> = ({
   targetValue,
   baseLine,
-  target2030,
   latestValue,
 }) => {
   const [chartData, setChartData] = useState({
@@ -136,27 +134,6 @@ const DimensionResultsChart: React.FC<DimensionResultsChartProps> = ({
       },
     },
   ];
-
-  useEffect(() => {
-    const data = {
-      labels: [""],
-      datasets: [
-        {
-          label: "Latest Value",
-          data: [latestValue],
-          backgroundColor: themeColors.success,
-          borderRadius: 10,
-        },
-        {
-          label: "Max Value",
-          data: [1],
-          backgroundColor: themeColors.primary,
-          borderRadius: 10,
-        },
-      ],
-    };
-    setChartData(data);
-  }, [latestValue]);
 
   return (
     <ChartWrapper>

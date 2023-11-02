@@ -13,7 +13,8 @@ export const ChartWrapper = styled.div`
 export const DimensionResultsChartIndicatorWrapper = styled.div`
   display: flex;
   position: relative;
-  width: 100%;
+  /* width: 100%; // CHECK HERE */
+  width: 95%; // CHECK HERE
   margin-top: -1rem;
 `;
 
@@ -24,13 +25,13 @@ type DimensionResultsChartIndicatorProps = {
 
 export const DimensionResultsChartValueWrapper = styled.div<DimensionResultsChartIndicatorProps>`
   position: absolute;
-  left: ${({ value }) => `calc(${value}% - 1rem)`};
+  left: ${({ value }) => `${value}%`};
   color: ${({ color }) => color};
   font-size: 12px;
   font-style: normal;
   font-weight: 700;
   line-height: 120%;
-  max-width: 5rem;
+  /* max-width: 5rem; */
   margin-bottom: -1rem;
   display: flex;
   height: 1.5rem;

@@ -17,12 +17,21 @@ import EntrepreneurshipIcon from "public/assets/icons/small-entrepreneurship-ico
 import { FormattedMessage } from "react-intl";
 import { useQuery } from "react-query";
 import {
+  GET_GENDER_OVERVIEW_VALUES,
   GET_OVERVIEW_VALUES,
+  getGenderOverviewValues,
   getOverviewValues,
 } from "utils/api-requests/overview";
-import { ECOWAS_DEFAULT_ID } from "utils/constants";
+import {
+  ECOWAS_DEFAULT_ID,
+  IndexEnum,
+  IndexEnumHCDGenderIndex,
+  Routes,
+} from "utils/constants";
 import styled from "@emotion/styled";
 import { CircularProgress } from "@mui/material";
+import { useRouter } from "next/router";
+import { useMemo } from "react";
 
 type SideSectionProps = {
   children?: any;
@@ -36,9 +45,26 @@ const CicularLoaderWrapper = styled.div`
   width: 100%;
 `;
 
+// IndexEnumHCDGenderIndex
+// IndexEnum
+
 const SideSection: React.FC<SideSectionProps> = ({ isContainer, children }) => {
-  const getKPIIndexes = async () => await getOverviewValues(ECOWAS_DEFAULT_ID);
-  const { data, isLoading } = useQuery([GET_OVERVIEW_VALUES], getKPIIndexes);
+  const router = useRouter();
+  const isGenderIndex = useMemo(() => {
+    return (
+      router.pathname === Routes.HCD_GENDER_INDEX ||
+      router.pathname === Routes.HCD_GENDER_INDEX_DEEP_DIVE
+    );
+  }, [router.pathname]);
+  const getKPIIndexes = async () =>
+    !isGenderIndex
+      ? await getOverviewValues(ECOWAS_DEFAULT_ID)
+      : getGenderOverviewValues(ECOWAS_DEFAULT_ID);
+  const { data, isLoading } = useQuery(
+    [isGenderIndex ? GET_OVERVIEW_VALUES : GET_GENDER_OVERVIEW_VALUES],
+    getKPIIndexes,
+    { onSuccess: (data) => console.log(data) }
+  );
   return !isLoading && data ? (
     <SideSectionWrapper isContainer={!!isContainer}>
       <TitleBar isContainer={!!isContainer} />
@@ -53,7 +79,14 @@ const SideSection: React.FC<SideSectionProps> = ({ isContainer, children }) => {
                 </div>
               </MetricSectionTitle>
               <MetricSectionValue>
-                {data.find((elm) => elm.kpi.id === 22)?.latestValue.toFixed(2)}
+                {data
+                  .find((elm) =>
+                    isGenderIndex
+                      ? elm.kpi.id ===
+                        IndexEnumHCDGenderIndex.HCD_INTEGRATED_INDEX
+                      : elm.kpi.id === IndexEnum.HCD_INTEGRATED_INDEX
+                  )
+                  ?.latestValue.toFixed(2)}
               </MetricSectionValue>
             </MetricSection>
             <MetricSection>
@@ -64,7 +97,13 @@ const SideSection: React.FC<SideSectionProps> = ({ isContainer, children }) => {
                 </div>
               </MetricSectionTitle>
               <MetricSectionValue>
-                {data.find((elm) => elm.kpi.id === 1)?.latestValue.toFixed(2)}
+                {data
+                  .find((elm) =>
+                    isGenderIndex
+                      ? elm.kpi.id === IndexEnumHCDGenderIndex.HEALTH
+                      : elm.kpi.id === IndexEnum.HEALTH
+                  )
+                  ?.latestValue.toFixed(2)}
               </MetricSectionValue>
             </MetricSection>
             <MetricSection>
@@ -75,7 +114,13 @@ const SideSection: React.FC<SideSectionProps> = ({ isContainer, children }) => {
                 </div>
               </MetricSectionTitle>
               <MetricSectionValue>
-                {data.find((elm) => elm.kpi.id === 9)?.latestValue.toFixed(2)}
+                {data
+                  .find((elm) =>
+                    isGenderIndex
+                      ? elm.kpi.id === IndexEnumHCDGenderIndex.EDUCATION
+                      : elm.kpi.id === IndexEnum.EDUCATION
+                  )
+                  ?.latestValue.toFixed(2)}
               </MetricSectionValue>
             </MetricSection>
             <MetricSection isLastOne>
@@ -86,7 +131,13 @@ const SideSection: React.FC<SideSectionProps> = ({ isContainer, children }) => {
                 </div>
               </MetricSectionTitle>
               <MetricSectionValue>
-                {data.find((elm) => elm.kpi.id === 18)?.latestValue.toFixed(2)}
+                {data
+                  .find((elm) =>
+                    isGenderIndex
+                      ? elm.kpi.id === IndexEnumHCDGenderIndex.ENTREPRENEURSHIP
+                      : elm.kpi.id === IndexEnum.ENTREPRENEURSHIP
+                  )
+                  ?.latestValue.toFixed(2)}
               </MetricSectionValue>
             </MetricSection>
           </MetricSectionWrapper>

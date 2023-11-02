@@ -81,7 +81,9 @@ const ContainedCountryComparisonCard: React.FC<CountryComparisonCardProps> = ({
                     : updateCountry(ECOWAS_DEFAULT_ID);
                 }}
               >
-                <CountryComparisonChartTitle>
+                <CountryComparisonChartTitle
+                  isPrimary={singleData.country.id === ECOWAS_DEFAULT_ID}
+                >
                   {country.label}
                 </CountryComparisonChartTitle>
                 <CountryComparisonChartBar

@@ -47,7 +47,7 @@ const HCDGenderIndexnavBar: React.FC = () => {
 
   return (
     <HCDGenderIndexnavBarWrapper isDimensionView={isDimensionView}>
-      {isDimensionView && (
+      {/* {isDimensionView && (
         <HCDGenderIndexnavBarTabs>
           <HCDGenderIndexnavBarSingleTab
             isClicked={index === IndexEnumHCDGenderIndex.HCD_INTEGRATED_INDEX}
@@ -78,8 +78,8 @@ const HCDGenderIndexnavBar: React.FC = () => {
             <FormattedMessage id={"overview.entrepreneurship"} />
           </HCDGenderIndexnavBarSingleTab>
         </HCDGenderIndexnavBarTabs>
-      )}
-      <HCDGenderIndexToggle />
+      )} */}
+      {/* <HCDGenderIndexToggle /> */}
     </HCDGenderIndexnavBarWrapper>
   );
 };

@@ -6,6 +6,7 @@ import EntrepreneurshipIcon from "public/assets/icons/entrepreneurship-icon.svg"
 import { IOverviewValues } from "utils/types";
 
 export const GET_OVERVIEW_VALUES = "GET_OVERVIEW_VALUES";
+export const GET_GENDER_OVERVIEW_VALUES = "GET_GENDER_OVERVIEW_VALUES";
 
 type IconDIspatcherValue = {
   icon: any;
@@ -24,6 +25,13 @@ export const getOverviewValues = async (
 ): Promise<IOverviewValues[]> => {
   return EcowasClient.get(`kpi-values/index/${countryId}`);
 };
+
+export const getGenderOverviewValues = async (
+  countryId: number
+): Promise<IOverviewValues[]> => {
+  return EcowasClient.get(`gender-kpi-values/index/${countryId}`);
+};
+
 
 export const getOverviewValuesGenderIndex = async (
   countryId: number

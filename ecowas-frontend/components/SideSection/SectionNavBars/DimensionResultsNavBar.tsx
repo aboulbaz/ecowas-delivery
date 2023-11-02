@@ -1,4 +1,4 @@
-import React, { useReducer, useState } from "react";
+import React, { useReducer } from "react";
 import Image from "next/image";
 import DropdownIcon from "public/assets/icons/dropwdown-icon.svg";
 import LocationIcon from "public/assets/icons/location-icon.svg";
@@ -10,7 +10,6 @@ import {
   DimensionResultsNavBarWrapper,
   DropdownIconWrapper,
   NavBarTabsContainer,
-  NavBarWrapper,
 } from "./SectionNavBars.style";
 import { FormattedMessage } from "react-intl";
 import { useDimensionResultsContext } from "utils/context";

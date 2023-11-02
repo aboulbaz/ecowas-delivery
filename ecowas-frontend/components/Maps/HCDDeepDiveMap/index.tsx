@@ -46,9 +46,9 @@ const HCDDeepDiveMap: React.FC = () => {
     isLoading,
   } = useMutation([GET_ALL_INDEX_KPIS], getKpiData, {
     onSuccess: (data) => {
-      let tmp = data.find((c) => c.country.id === 4)?.target2030;
+      let tmp = data.find((c) => c.country.id === 4)?.latestValue;
       setCaboVerde(tmp || 0);
-      tmp = data.find((c) => c.country.id === ECOWAS_DEFAULT_ID)?.target2030;
+      tmp = data.find((c) => c.country.id === ECOWAS_DEFAULT_ID)?.latestValue;
       setECOWAS(tmp || 0);
     },
   });

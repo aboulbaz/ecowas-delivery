@@ -78,12 +78,18 @@ export const CountryComparisonChartBar = styled.div<CountryComparisonChartBarPro
   font-weight: bolder;
 `;
 
-export const CountryComparisonChartTitle = styled.div`
+type CountryComparisonChartTitleProps = {
+  isPrimary?: boolean;
+};
+
+export const CountryComparisonChartTitle = styled.div<CountryComparisonChartTitleProps>`
   min-width: 5rem;
   max-width: 5rem;
   font-size: 0.7rem;
   font-weight: bolder;
   letter-spacing: 0.5px;
+  color: ${({ theme, isPrimary }) =>
+    isPrimary ? theme.colors.secondary : theme.colors.black};
 `;
 
 interface CountryComparisonChartBallProps

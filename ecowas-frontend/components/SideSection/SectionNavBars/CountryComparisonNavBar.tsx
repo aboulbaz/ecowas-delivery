@@ -6,6 +6,7 @@ import {
   DimensionResultsNavBarTitle,
   DimensionResultsNavBarWrapper,
   DropdownIconWrapper,
+  NavBarTabsContainer,
   NavBarWrapper,
 } from "./SectionNavBars.style";
 import { IndexDispatcher } from "utils/types";
@@ -35,39 +36,44 @@ const CountryComparisonNavBar: React.FC = () => {
     updateIndex(index);
     handleClose();
   };
+
   return (
     <NavBarWrapper>
-      <DimensionResultsNavBarWrapper onClick={clickDropDown}>
-        <Image src={IndexDispatcher[index]?.icon} alt="" height={60} />
-        <DimensionResultsNavBarTitle>
-          <FormattedMessage id={IndexDispatcher[index]?.title} />
-        </DimensionResultsNavBarTitle>
-        <DropdownIconWrapper>
-          <Image src={DropdownIcon} alt={""} width={15} />
-        </DropdownIconWrapper>
-      </DimensionResultsNavBarWrapper>
-      <CustomMenu
-        anchorEl={anchorEl}
-        open={Boolean(anchorEl)}
-        onClose={handleClose}
-      >
-        <CustomMenuItem
-          onClick={() => handleChange(IndexEnum.HCD_INTEGRATED_INDEX)}
-        >
-          <FormattedMessage id={"overview.integrated-hcd-index"} />
-        </CustomMenuItem>
-        <CustomMenuItem onClick={() => handleChange(IndexEnum.HEALTH)}>
-          <FormattedMessage id={"overview.health"} />
-        </CustomMenuItem>
-        <CustomMenuItem onClick={() => handleChange(IndexEnum.EDUCATION)}>
-          <FormattedMessage id={"overview.education"} />
-        </CustomMenuItem>
-        <CustomMenuItem
-          onClick={() => handleChange(IndexEnum.ENTREPRENEURSHIP)}
-        >
-          <FormattedMessage id={"overview.entrepreneurship"} />
-        </CustomMenuItem>
-      </CustomMenu>
+      <NavBarTabsContainer>
+        <div>
+          <DimensionResultsNavBarWrapper onClick={clickDropDown}>
+            <Image src={IndexDispatcher[index]?.icon} alt="" height={60} />
+            <DimensionResultsNavBarTitle>
+              <FormattedMessage id={IndexDispatcher[index]?.title} />
+            </DimensionResultsNavBarTitle>
+            <DropdownIconWrapper>
+              <Image src={DropdownIcon} alt={""} width={15} />
+            </DropdownIconWrapper>
+          </DimensionResultsNavBarWrapper>
+          <CustomMenu
+            anchorEl={anchorEl}
+            open={Boolean(anchorEl)}
+            onClose={handleClose}
+          >
+            <CustomMenuItem
+              onClick={() => handleChange(IndexEnum.HCD_INTEGRATED_INDEX)}
+            >
+              <FormattedMessage id={"overview.integrated-hcd-index"} />
+            </CustomMenuItem>
+            <CustomMenuItem onClick={() => handleChange(IndexEnum.HEALTH)}>
+              <FormattedMessage id={"overview.health"} />
+            </CustomMenuItem>
+            <CustomMenuItem onClick={() => handleChange(IndexEnum.EDUCATION)}>
+              <FormattedMessage id={"overview.education"} />
+            </CustomMenuItem>
+            <CustomMenuItem
+              onClick={() => handleChange(IndexEnum.ENTREPRENEURSHIP)}
+            >
+              <FormattedMessage id={"overview.entrepreneurship"} />
+            </CustomMenuItem>
+          </CustomMenu>
+        </div>
+      </NavBarTabsContainer>
       <CountryComparisonToggle />
     </NavBarWrapper>
   );

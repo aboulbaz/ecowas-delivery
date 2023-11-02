@@ -20,11 +20,8 @@ const HorizontalOverviewChartBar: React.FC<Props> = ({
   return (
     <HorizontalOverviewChartBarContainer>
       <HorizontalOverviewChartBarWrapper percentage={value} />
-      <HorizontalOverviewChartBarTargetValueWrapper
-        value={value}
-        targetValue={targetValue}
-      >
-        <HorizontalOverviewChartBarTargetValue percentage={targetValue}/>
+      <HorizontalOverviewChartBarTargetValueWrapper>
+        <HorizontalOverviewChartBarTargetValue percentage={targetValue} />
         <HorizontalOverviewChartText percentage={targetValue}>
           <FormattedMessage id={"overview.target-value"} />
         </HorizontalOverviewChartText>

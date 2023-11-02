@@ -87,7 +87,6 @@ const OverviewPageCards: React.FC = () => {
           {HCDValue && (
             <OverviewCard
               key={HCDValue.id}
-              id={HCDValue.kpi.id}
               icon={IconDispatcher[HCDValue.kpi.id].icon}
               progressIcon={progressIconHandler(HCDValue.progressMade).icon}
               color={progressIconHandler(HCDValue.progressMade).color}
@@ -103,7 +102,6 @@ const OverviewPageCards: React.FC = () => {
           {HealtValue && (
             <OverviewCard
               key={HealtValue.id}
-              id={HealtValue.kpi.id}
               icon={IconDispatcher[HealtValue.kpi.id].icon}
               progressIcon={progressIconHandler(HealtValue.progressMade).icon}
               color={progressIconHandler(HealtValue.progressMade).color}
@@ -116,10 +114,28 @@ const OverviewPageCards: React.FC = () => {
               latestValueHcdGenderIndex={HealtValue.associatedKpi?.latestValue}
             />
           )}
+          {EducationValue && (
+            <OverviewCard
+              key={EducationValue.id}
+              icon={IconDispatcher[EducationValue.kpi.id].icon}
+              progressIcon={
+                progressIconHandler(EducationValue.progressMade).icon
+              }
+              color={progressIconHandler(EducationValue.progressMade).color}
+              title={EducationValue.kpi[LanguageDispatcher[language].label]}
+              progress={EducationValue.progressMade}
+              latestValue={EducationValue.latestValue}
+              targetValue={EducationValue.targetLatestValue}
+              baseLine={EducationValue.baseline}
+              target2030={EducationValue.target2030}
+              latestValueHcdGenderIndex={
+                EducationValue.associatedKpi?.latestValue
+              }
+            />
+          )}
           {EntrepreneurshipValue && (
             <OverviewCard
               key={EntrepreneurshipValue.id}
-              id={EntrepreneurshipValue.kpi.id}
               icon={IconDispatcher[EntrepreneurshipValue.kpi.id].icon}
               progressIcon={
                 progressIconHandler(EntrepreneurshipValue.progressMade).icon
@@ -137,26 +153,6 @@ const OverviewPageCards: React.FC = () => {
               target2030={EntrepreneurshipValue.target2030}
               latestValueHcdGenderIndex={
                 EntrepreneurshipValue.associatedKpi?.latestValue
-              }
-            />
-          )}
-          {EducationValue && (
-            <OverviewCard
-              key={EducationValue.id}
-              id={EducationValue.kpi.id}
-              icon={IconDispatcher[EducationValue.kpi.id].icon}
-              progressIcon={
-                progressIconHandler(EducationValue.progressMade).icon
-              }
-              color={progressIconHandler(EducationValue.progressMade).color}
-              title={EducationValue.kpi[LanguageDispatcher[language].label]}
-              progress={EducationValue.progressMade}
-              latestValue={EducationValue.latestValue}
-              targetValue={EducationValue.targetLatestValue}
-              baseLine={EducationValue.baseline}
-              target2030={EducationValue.target2030}
-              latestValueHcdGenderIndex={
-                EducationValue.associatedKpi?.latestValue
               }
             />
           )}

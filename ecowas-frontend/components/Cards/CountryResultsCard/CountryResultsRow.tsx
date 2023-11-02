@@ -25,10 +25,17 @@ type Props = {
   target2030: number;
   target2030Normalized: number;
   rank: number;
+  hasParent?: boolean;
 };
 
-const CountryResultsRowTitle = styled.div`
+type CountryResultsRowTitleProps = {
+  hasParent?: boolean;
+};
+
+const CountryResultsRowTitle = styled.div<CountryResultsRowTitleProps>`
   font-weight: bold;
+  color: ${({ theme, hasParent }) =>
+    !hasParent ? theme.colors.primary : theme.colors.black};
 `;
 
 const CountryResultsRow: React.FC<Props> = ({
@@ -43,12 +50,13 @@ const CountryResultsRow: React.FC<Props> = ({
   targetForLatestNormalized,
   target2030,
   target2030Normalized,
-  rank
+  rank,
+  hasParent,
 }) => {
   return (
     <CountryResultsTableRow>
       <CountryResultsTableCell>
-        <CountryResultsRowTitle>{title}</CountryResultsRowTitle> {description}
+        <CountryResultsRowTitle hasParent={hasParent}>{title}</CountryResultsRowTitle> {description}
       </CountryResultsTableCell>
       {(valueType === VALUES_TYPE.BASELINE ||
         valueType === VALUES_TYPE.ALL) && (
@@ -63,6 +71,7 @@ const CountryResultsRow: React.FC<Props> = ({
               <HorizontalCountryResultsChart
                 value={baselineNormalized}
                 isLong={valueType === VALUES_TYPE.BASELINE}
+                hasParent={!!hasParent}
               />
             </CountryResultsTableCellChart>
             <CountryResultsTableCellTitle>
@@ -83,6 +92,7 @@ const CountryResultsRow: React.FC<Props> = ({
               <HorizontalCountryResultsChart
                 value={latestValueNormalized}
                 isLong={valueType === VALUES_TYPE.LATEST}
+                hasParent={!!hasParent}
               />
             </CountryResultsTableCellChart>
             <CountryResultsTableCellTitle>
@@ -104,6 +114,7 @@ const CountryResultsRow: React.FC<Props> = ({
               <HorizontalCountryResultsChart
                 value={targetForLatestNormalized}
                 isLong={valueType === VALUES_TYPE.TARGET_FOR_LATEST}
+                hasParent={!!hasParent}
               />
             </CountryResultsTableCellChart>
             <CountryResultsTableCellTitle>
@@ -125,6 +136,7 @@ const CountryResultsRow: React.FC<Props> = ({
               <HorizontalCountryResultsChart
                 value={target2030Normalized}
                 isLong={valueType === VALUES_TYPE.TARGET_2030}
+                hasParent={!!hasParent}
               />
             </CountryResultsTableCellChart>
             <CountryResultsTableCellTitle>

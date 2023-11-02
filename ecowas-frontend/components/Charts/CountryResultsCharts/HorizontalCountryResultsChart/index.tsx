@@ -19,11 +19,13 @@ ChartJS.register(CategoryScale, LinearScale, BarElement);
 type DimensionResultsChartProps = {
   value: number;
   isLong: boolean;
+  hasParent: boolean;
 };
 
 const HorizontalCountryResultsChart: React.FC<DimensionResultsChartProps> = ({
   value,
   isLong,
+  hasParent,
 }) => {
   const data = {
     labels: [""],
@@ -31,8 +33,8 @@ const HorizontalCountryResultsChart: React.FC<DimensionResultsChartProps> = ({
       {
         label: "Value",
         data: [value * 2],
-        backgroundColor: themeColors.success,
-        borderRadius: 10,
+        backgroundColor: hasParent ? themeColors.success : themeColors.primary,
+        borderRadius: 5,
       },
     ],
   };
@@ -95,7 +97,9 @@ const HorizontalCountryResultsChart: React.FC<DimensionResultsChartProps> = ({
   return (
     <ChartWrapper isLong={isLong}>
       <Bar data={data} options={optionsBeta} plugins={plugins} />
-      {(value < 0.5 || isLong) && <ChartValue>{value}</ChartValue>}
+      {(value < 0.5 || isLong) && (
+        <ChartValue hasParent={!!hasParent}>{value}</ChartValue>
+      )}
     </ChartWrapper>
   );
 };

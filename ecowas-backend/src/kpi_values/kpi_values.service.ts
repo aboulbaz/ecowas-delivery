@@ -73,19 +73,22 @@ export class KpiValuesService {
         },
         relations: ['kpi', 'country', 'kpi.associatedGenderIndexKpi'],
       });
-
-      const promises = kpiIndex.map(async (kpi) => {
-        const associatedKpi = await this.kpiValueRepository.findOne({
-          where: {
-            country: {
-              id: country,
+      const promises = kpiIndex.map(async (kpiValue) => {
+        if (kpiValue.kpi.associatedGenderIndexKpi) {
+          console.log('HERE');
+          const associatedKpi = await this.kpiValueRepository.findOne({
+            where: {
+              country: {
+                id: country,
+              },
+              kpi: {
+                id: kpiValue.kpi.associatedGenderIndexKpi.id,
+              },
             },
-            kpi: {
-              id: kpi.kpi.associatedGenderIndexKpi.id,
-            },
-          },
-        });
-        return { ...kpi, associatedKpi };
+          });
+          return { ...kpiValue, associatedKpi };
+        }
+        return { ...kpiValue };
       });
 
       return await Promise.all(promises);
@@ -103,11 +106,26 @@ export class KpiValuesService {
           },
           kpi: {
             isGenderIndexKPI: 0,
+            parent: IsNull(),
           },
         },
-        relations: ['country', 'kpi', 'kpi.parent'],
+        relations: ['country', 'kpi', 'kpi.parent', 'kpi.childs'],
       });
-      return kpiIndex;
+      const promises = kpiIndex.map(async (kpiValue) => {
+        const childs = await this.kpiValueRepository.find({
+          where: {
+            country: {
+              id: country,
+            },
+            kpi: {
+              parent: kpiValue.kpi,
+            },
+          },
+          relations: ['country', 'kpi', 'kpi.parent'],
+        });
+        return childs ? { ...kpiValue, childs } : { ...kpiValue };
+      });
+      return await Promise.all(promises);
     } catch (error) {
       throw new NotFoundException();
     }

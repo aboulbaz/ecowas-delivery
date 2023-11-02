@@ -4,7 +4,6 @@ import {
   CountryResultsCardWrapper,
   CountryResultsTableContainer,
 } from "./CountryResultsCard.style";
-import { VALUES_TYPE } from "utils/constants";
 import CountryResultsCardHeader from "./CountryResultsCardHeader";
 import {
   Chart as ChartJS,
@@ -19,10 +18,10 @@ import {
   getCountryResults,
 } from "utils/api-requests/country-results";
 import { GET_COUNTRIES } from "utils/api-requests/global";
-import { ICountry, LanguageDispatcher } from "utils/types";
-import CountryResultsRow from "./CountryResultsRow";
+import { ICountry } from "utils/types";
 import styled from "@emotion/styled";
 import { CircularProgress } from "@mui/material";
+import CountryResultsRowLoop from "./CountryResultsRowLoop";
 
 ChartJS.register(CategoryScale, LinearScale, BarElement);
 
@@ -48,9 +47,7 @@ const CountryResultsCard: React.FC = () => {
   useEffect(() => {
     const countryId = countries?.find((c) => c.label === country)?.id;
     countryId && getCountryResultHandler({ country: countryId });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [country, countries]);
-
+  }, [country, countries, getCountryResultHandler]);
 
   if (isLoading)
     return (
@@ -64,25 +61,11 @@ const CountryResultsCard: React.FC = () => {
       <CountryResultsTableContainer>
         <CountryResultsCardHeader />
         <tbody>
-          {kpiValues?.map((kpiValue) => (
-            <CountryResultsRow
-              key={kpiValue.id}
-              title={kpiValue.kpi[LanguageDispatcher[language].label]}
-              description={kpiValue.kpi[LanguageDispatcher[language].description]}
-              valueType={valueType}
-              baseline={+kpiValue.baseline?.toFixed(2)}
-              baselineNormalized={+kpiValue.baselineNormalized?.toFixed(2)}
-              latestValue={+kpiValue.latestValue?.toFixed(2)}
-              latestValueNormalized={+kpiValue.latestValueNormalized?.toFixed(2)}
-              targetForLatest={+kpiValue.targetLatestValue?.toFixed(2)}
-              targetForLatestNormalized={
-                +kpiValue.targetLatestValueNormalized?.toFixed(2)
-              }
-              target2030={+kpiValue.target2030?.toFixed(2)}
-              target2030Normalized={+kpiValue.target2030Normalized?.toFixed(2)}
-              rank={kpiValue.ranking}
-            />
-          ))}
+          <CountryResultsRowLoop
+            kpiValues={kpiValues}
+            language={language}
+            valueType={valueType}
+          />
         </tbody>
       </CountryResultsTableContainer>
     </CountryResultsCardWrapper>

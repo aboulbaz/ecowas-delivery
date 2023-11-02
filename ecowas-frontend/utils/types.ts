@@ -13,6 +13,7 @@ export interface IKPI {
   labelPortuguese: string;
   descriptionPortuguese?: string;
   parent?: IKPI;
+  childs?: IKPI[];
 }
 
 export interface ILanguageDispatcher {
@@ -69,6 +70,7 @@ export interface IOverviewValues {
   country: ICountry;
   kpi: IKPI;
   associatedKpi?: IOverviewValues;
+  childs?: IOverviewValues[];
 }
 
 export type IconDIspatcherValue = {

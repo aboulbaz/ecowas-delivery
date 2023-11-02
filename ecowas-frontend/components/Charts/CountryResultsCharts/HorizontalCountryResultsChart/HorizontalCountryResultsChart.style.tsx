@@ -6,14 +6,19 @@ type ChartWrapperProps = {
 
 export const ChartWrapper = styled.div<ChartWrapperProps>`
   padding-bottom: 0;
-  width: ${({ isLong }) => !isLong ? '6rem' : '43rem'};
+  width: ${({ isLong }) => (!isLong ? "6rem" : "43rem")};
   height: 4rem;
   display: flex;
   align-items: center;
 `;
 
-export const ChartValue = styled.div`
+type ChartValueProps = {
+  hasParent: boolean;
+};
+
+export const ChartValue = styled.div<ChartValueProps>`
   font-weight: bold;
-  color: ${({ theme }) => theme.colors.success};
+  color: ${({ theme, hasParent }) =>
+    hasParent ? theme.colors.success : theme.colors.primary};
   margin-left: -10px;
 `;

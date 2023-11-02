@@ -14,7 +14,6 @@ import HCDGenderIndexCard from "./HCDGenderIndexCard";
 import BetaHorizontalOverviewChart from "components/Charts/OverviewCharts/BetaHorizontalOverviewChart";
 
 type Props = {
-  id: number;
   icon: any;
   progressIcon: any;
   color: string;
@@ -28,7 +27,6 @@ type Props = {
 };
 
 const OverviewCard: React.FC<Props> = ({
-  id,
   icon,
   progressIcon,
   color,
@@ -64,7 +62,7 @@ const OverviewCard: React.FC<Props> = ({
         targetValue={targetValue * 100}
       />
 
-      {latestValueHcdGenderIndex && id !== 22 && title !== "" && (
+      {latestValueHcdGenderIndex && (
         <HCDGenderIndexCard
           title={title}
           latestValue={+latestValueHcdGenderIndex?.toFixed(2)}

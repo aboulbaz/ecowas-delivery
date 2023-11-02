@@ -17,7 +17,8 @@ const HCDGenderIndexPage = () => {
   return (
     <Layout>
       <SideSection isContainer>
-        {isDimensionView ? <HCDMap /> : <HCDGenderIndexCard />}
+        {/* {isDimensionView ? <HCDMap /> : <HCDGenderIndexCard />} */}
+        <HCDGenderIndexCard />
       </SideSection>
     </Layout>
   );
