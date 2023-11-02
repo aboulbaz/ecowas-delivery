@@ -112,8 +112,8 @@ const DimensionResultsCard: React.FC = () => {
                       : ProgressEnum.DOWN
                   ].color
                 }
-                latestValueNormalized={indexKpi.latestValueNormalized * 100}
-                targetValue={indexKpi.target2030Normalized * 100}
+                baselineNormalized={indexKpi.baselineNormalized * 100}
+                targetValue={indexKpi.targetLatestValueNormalized * 100}
               />
             </DimensionResultsCardContainer>
           </DimensionResultsCardWrapper>
@@ -165,7 +165,7 @@ const DimensionResultsCard: React.FC = () => {
                           : ProgressEnum.DOWN
                       ].color
                     }
-                    latestValueNormalized={data.latestValueNormalized * 100}
+                    baselineNormalized={data.baselineNormalized * 100}
                     targetValue={data.targetLatestValueNormalized * 100}
                   />
                 </DimensionResultsCardContainer>

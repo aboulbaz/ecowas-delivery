@@ -27,7 +27,7 @@ export const DimensionResultsChartValueWrapper = styled.div<DimensionResultsChar
   position: absolute;
   left: ${({ value }) => `${value}%`};
   color: ${({ color }) => color};
-  font-size: 12px;
+  font-size: 10px;
   font-style: normal;
   font-weight: 700;
   line-height: 120%;
@@ -49,4 +49,5 @@ export const DimensionResultsChartIndicator = styled.div<DimensionResultsChartCo
 export const DimensionResultsChartTitle = styled.div`
   padding-left: 5px;
   min-width: 3rem;
+  padding-bottom: 5px;
 `;

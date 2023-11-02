@@ -13,7 +13,7 @@ type Props = {
   progress: number;
   progressIcon: any;
   color: string;
-  latestValueNormalized: number;
+  baselineNormalized: number;
   targetValue: number;
 };
 
@@ -21,7 +21,7 @@ const DimensionResultsCardProgressCard: React.FC<Props> = ({
   progress,
   progressIcon,
   color,
-  latestValueNormalized,
+  baselineNormalized,
   targetValue,
 }) => {
   return (
@@ -36,7 +36,7 @@ const DimensionResultsCardProgressCard: React.FC<Props> = ({
         </DimensionResultsCardProgressValue>
       </DimensionResultsCardProgressWrapper>
       <HorizontalDimensionResultsChart
-        value={latestValueNormalized}
+        value={baselineNormalized}
         targetValue={targetValue}
       />
     </DimensionResultsCardProgressCardWrapper>

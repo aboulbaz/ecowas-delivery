@@ -147,6 +147,7 @@ const DimensionResultsChart: React.FC<DimensionResultsChartProps> = ({
           </DimensionResultsChartIndicator>
           <DimensionResultsChartTitle>
             <FormattedMessage id="overview.baseline" />
+            <div>2016-18</div>
           </DimensionResultsChartTitle>
         </DimensionResultsChartValueWrapper>
       </DimensionResultsChartIndicatorWrapper>
@@ -161,6 +162,7 @@ const DimensionResultsChart: React.FC<DimensionResultsChartProps> = ({
           </DimensionResultsChartIndicator>
           <DimensionResultsChartTitle>
             <FormattedMessage id="overview.target-value" />
+            <div>2019-20</div>
           </DimensionResultsChartTitle>
         </DimensionResultsChartValueWrapper>{" "}
       </DimensionResultsChartIndicatorWrapper>
