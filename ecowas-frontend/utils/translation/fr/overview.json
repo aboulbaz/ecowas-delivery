@@ -1,21 +1,23 @@
 {
-  "integrated-hcd-index": "Indice HCD intégré",
+  "integrated-hcd-index": "Indice DCH intégré",
   "progress": "Progrès réalisés depuis 2017",
+  "progress-made": "Progrès réalisés",
   "health": "Santé et nutrition",
-  "education": "Éducation, compétences et participation à la main-d'œuvre",
-  "entrepreneurship": "Entrepreneuriat, inclusion financière et économie numérique",
+  "education": "Éducation, compétences et participation au marché du travail",
+  "entrepreneurship": "Entreprenariat, inclusion financière et économie numérique",
   "hcd-gender-index": {
-    "title-label": "HCD Gender index",
-    "latest-value": "Latest Value",
-    "latest-value-normalized": "Latest Value Normalized"
+    "title-label": "Indice de genre DCH",
+    "latest-value": "Dernière valeur",
+    "latest-value-normalized": "Dernière valeur normalisée"
   },
   "target-value": "Target Value",
-  "baseline": "Baseline",
-  "baseline-normalized": "Baseline Normalized",
+  "baseline": "Valeur de référence",
+  "baseline-normalized": "Valeur de référence normalisée",
   "latest:": "Latest",
-  "target-latest-value": "Target for latest value",
-  "target-latest-value-normalized": "Target for Latest Value Normalized",
-  "target-2030": "Target 2030",
-  "target-2030-normalized": "Target 2030 Normalized",
-  "rank": "Rank"
+  "target-latest-value": "Objectif pour la dernière valeur",
+  "target-latest-value-normalized": "Objectif pour la dernière valeur normalisée",
+  "target-2030": "Valeur cible 2030",
+  "target-2030-normalized": "Objectif 2030 normalisé",
+  "rank": "Rang",
+  "aggregated-index": "Indice agrégé"
 }

@@ -25,9 +25,10 @@ const HorizontalOverviewChartBar: React.FC<Props> = ({
         targetValue={targetValue}
       >
         <HorizontalOverviewChartBarTargetValue />
-        <HorizontalOverviewChartText>
-          <FormattedMessage id={"overview.target-value"} />
-        </HorizontalOverviewChartText>
+      <HorizontalOverviewChartText>
+        {/* <FormattedMessage id={"overview.target-value"} /> */}
+        Latest vs Target Value
+      </HorizontalOverviewChartText>
       </HorizontalOverviewChartBarTargetValueWrapper>
     </HorizontalOverviewChartBarContainer>
   );

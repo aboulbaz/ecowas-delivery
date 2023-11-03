@@ -81,22 +81,22 @@ const HCDGenderIndexDeepDivenavBar: React.FC = () => {
             handleChange(IndexEnumHCDGenderIndex.HCD_INTEGRATED_INDEX)
           }
         >
-          <FormattedMessage id={"overview.integrated-hcd-index"} />
+          <FormattedMessage id={"HcdGenderIndex.integrated-hcd-index"} />
         </CustomMenuItem>
         <CustomMenuItem
           onClick={() => handleChange(IndexEnumHCDGenderIndex.HEALTH)}
         >
-          <FormattedMessage id={"overview.health"} />
+          <FormattedMessage id={"HcdGenderIndex.health"} />
         </CustomMenuItem>
         <CustomMenuItem
           onClick={() => handleChange(IndexEnumHCDGenderIndex.EDUCATION)}
         >
-          <FormattedMessage id={"overview.education"} />
+          <FormattedMessage id={"HcdGenderIndex.education"} />
         </CustomMenuItem>
         <CustomMenuItem
           onClick={() => handleChange(IndexEnumHCDGenderIndex.ENTREPRENEURSHIP)}
         >
-          <FormattedMessage id={"overview.entrepreneurship"} />
+          <FormattedMessage id={"HcdGenderIndex.entrepreneurship"} />
         </CustomMenuItem>
       </CustomMenu>
       <HCDGenderIndexDeepDiveToggle
@@ -105,9 +105,9 @@ const HCDGenderIndexDeepDivenavBar: React.FC = () => {
             ? [
                 {
                   id: index,
-                  label: "Aggregated score",
-                  labelFrench: "Aggregated score",
-                  labelPortuguese: "Aggregated score",
+                  label: "Aggregated index",
+                  labelFrench: "Aggregated index",
+                  labelPortuguese: "Aggregated index",
                 },
                 ...kpis,
               ]

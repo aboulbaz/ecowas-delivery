@@ -29,9 +29,9 @@ const CountryResultsCardHeader: React.FC = () => {
               >
                 <FormattedMessage id={"overview.baseline-normalized"} />
               </CountryResultsTableCellChart>
-              <CountryResultsTableCellTitle>
+              {/* <CountryResultsTableCellTitle>
                 <FormattedMessage id={"overview.rank"} />
-              </CountryResultsTableCellTitle>
+              </CountryResultsTableCellTitle> */}
             </CountryResultsTableCellWrapper>
           </CountryResultsTableCell>
         )}
@@ -71,9 +71,9 @@ const CountryResultsCardHeader: React.FC = () => {
                   id={"overview.target-latest-value-normalized"}
                 />
               </CountryResultsTableCellChart>
-              <CountryResultsTableCellTitle>
+              {/* <CountryResultsTableCellTitle>
                 <FormattedMessage id={"overview.rank"} />
-              </CountryResultsTableCellTitle>
+              </CountryResultsTableCellTitle> */}
             </CountryResultsTableCellWrapper>
           </CountryResultsTableCell>
         )}
@@ -89,9 +89,9 @@ const CountryResultsCardHeader: React.FC = () => {
               >
                 <FormattedMessage id={"overview.target-2030-normalized"} />
               </CountryResultsTableCellChart>
-              <CountryResultsTableCellTitle>
+              {/* <CountryResultsTableCellTitle>
                 <FormattedMessage id={"overview.rank"} />
-              </CountryResultsTableCellTitle>
+              </CountryResultsTableCellTitle> */}
             </CountryResultsTableCellWrapper>
           </CountryResultsTableCell>
         )}

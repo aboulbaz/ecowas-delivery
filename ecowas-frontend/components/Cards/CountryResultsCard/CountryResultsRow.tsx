@@ -74,9 +74,9 @@ const CountryResultsRow: React.FC<Props> = ({
                 hasParent={!!hasParent}
               />
             </CountryResultsTableCellChart>
-            <CountryResultsTableCellTitle>
+            {/* <CountryResultsTableCellTitle>
               <CountryResultsRankTag>{rank}</CountryResultsRankTag>
-            </CountryResultsTableCellTitle>
+            </CountryResultsTableCellTitle> */}
           </CountryResultsTableCellWrapper>
         </CountryResultsTableCell>
       )}
@@ -117,9 +117,9 @@ const CountryResultsRow: React.FC<Props> = ({
                 hasParent={!!hasParent}
               />
             </CountryResultsTableCellChart>
-            <CountryResultsTableCellTitle>
+            {/* <CountryResultsTableCellTitle>
               <CountryResultsRankTag>{rank}</CountryResultsRankTag>
-            </CountryResultsTableCellTitle>
+            </CountryResultsTableCellTitle> */}
           </CountryResultsTableCellWrapper>
         </CountryResultsTableCell>
       )}
@@ -139,9 +139,9 @@ const CountryResultsRow: React.FC<Props> = ({
                 hasParent={!!hasParent}
               />
             </CountryResultsTableCellChart>
-            <CountryResultsTableCellTitle>
+            {/* <CountryResultsTableCellTitle>
               <CountryResultsRankTag>{rank}</CountryResultsRankTag>
-            </CountryResultsTableCellTitle>
+            </CountryResultsTableCellTitle> */}
           </CountryResultsTableCellWrapper>
         </CountryResultsTableCell>
       )}

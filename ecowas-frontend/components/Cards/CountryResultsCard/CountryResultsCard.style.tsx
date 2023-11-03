@@ -4,11 +4,16 @@ export const CountryResultsCardWrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.white};
   border-radius: 8px;
   padding: 1rem 0.9rem;
+
 `;
 
 export const CountryResultsTableContainer = styled.table`
   width: 100%;
   border-collapse: collapse;
+`;
+
+export const CountryResultsTbody = styled.tbody`
+  overflow-y: scroll;
 `;
 
 export const CountryResultsTableHead = styled.thead`

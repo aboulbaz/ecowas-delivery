@@ -58,7 +58,7 @@ const OverviewCard: React.FC<Props> = ({
         latestValue={latestValue}
       />
       <BetaHorizontalOverviewChart
-        latestValue={baseLine * 100}
+        latestValue={latestValue * 100}
         targetValue={targetValue * 100}
       />
 

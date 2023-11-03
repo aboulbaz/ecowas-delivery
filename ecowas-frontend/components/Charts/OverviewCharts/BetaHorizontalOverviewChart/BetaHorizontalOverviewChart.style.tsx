@@ -19,13 +19,14 @@ export const HorizontalOverviewChartWrapper = styled.div`
 export const HorizontalOverviewChartText = styled.div`
   font-style: normal;
   font-weight: 800;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   line-height: 120%;
   color: ${({ theme }) => theme.colors.success};
   margin-top: 8px;
   padding-bottom: 10px;
   width: 4.5rem;
   text-align: center;
+  margin-left: -20px;
 `;
 
 type HorizontalOverviewChartBarProps = {
@@ -37,6 +38,7 @@ export const HorizontalOverviewChartBarContainer = styled.div`
   display: flex;
   height: 100%;
   border-radius: inherit;
+  text-align: center;
 `;
 
 export const HorizontalOverviewChartBarWrapper = styled.div<HorizontalOverviewChartBarProps>`
@@ -62,7 +64,7 @@ export const HorizontalOverviewChartBarTargetValueWrapper = styled.div<Horizonta
 export const HorizontalOverviewChartBarTargetValue = styled.div`
   height: 100%;
   width: 1rem;
-  background-color: ${({ theme }) => theme.colors.success};
+  background-color: ${({ theme }) => theme.colors.secondary};
   border-radius: 50%;
   padding: 0;
 `;

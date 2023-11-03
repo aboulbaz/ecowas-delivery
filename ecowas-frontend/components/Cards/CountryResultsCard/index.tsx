@@ -3,6 +3,7 @@ import { useCountryResultsContext, useLanguageContext } from "utils/context";
 import {
   CountryResultsCardWrapper,
   CountryResultsTableContainer,
+  CountryResultsTbody,
 } from "./CountryResultsCard.style";
 import CountryResultsCardHeader from "./CountryResultsCardHeader";
 import {
@@ -60,13 +61,13 @@ const CountryResultsCard: React.FC = () => {
     <CountryResultsCardWrapper>
       <CountryResultsTableContainer>
         <CountryResultsCardHeader />
-        <tbody>
+        <CountryResultsTbody>
           <CountryResultsRowLoop
             kpiValues={kpiValues}
             language={language}
             valueType={valueType}
           />
-        </tbody>
+        </CountryResultsTbody>
       </CountryResultsTableContainer>
     </CountryResultsCardWrapper>
   );

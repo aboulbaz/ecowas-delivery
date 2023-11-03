@@ -45,8 +45,6 @@ const CicularLoaderWrapper = styled.div`
   width: 100%;
 `;
 
-// IndexEnumHCDGenderIndex
-// IndexEnum
 
 const SideSection: React.FC<SideSectionProps> = ({ isContainer, children }) => {
   const router = useRouter();

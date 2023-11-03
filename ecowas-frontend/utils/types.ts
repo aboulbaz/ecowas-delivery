@@ -70,7 +70,7 @@ export interface IOverviewValues {
   country: ICountry;
   kpi: IKPI;
   associatedKpi?: IOverviewValues;
-  childs?: IOverviewValues[];
+  childs?: IKPI[];
 }
 
 export type IconDIspatcherValue = {
@@ -103,18 +103,18 @@ export const IndexHcdGenderDispatcher: Record<
 > = {
   [IndexEnumHCDGenderIndex.HCD_INTEGRATED_INDEX]: {
     icon: HCDIndesIcon,
-    title: "overview.integrated-hcd-index",
+    title: "HcdGenderIndex.integrated-hcd-index",
   },
   [IndexEnumHCDGenderIndex.HEALTH]: {
     icon: HealthIcon,
-    title: "overview.health",
+    title: "HcdGenderIndex.health",
   },
   [IndexEnumHCDGenderIndex.EDUCATION]: {
     icon: EducationIcon,
-    title: "overview.education",
+    title: "HcdGenderIndex.education",
   },
   [IndexEnumHCDGenderIndex.ENTREPRENEURSHIP]: {
     icon: EntrepreneurshipIcon,
-    title: "overview.entrepreneurship",
+    title: "HcdGenderIndex.entrepreneurship",
   },
 };

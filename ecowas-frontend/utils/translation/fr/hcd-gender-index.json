@@ -1,5 +1,9 @@
 {
   "performance": "Performance",
   "very-strong": "Très fort",
-  "low": "Faible"
+  "low": "Faible",
+  "integrated-hcd-index": "HCD Gender integrated index",
+  "health": "Health and nutrition",
+  "education": "Education, skills, and labor participation",
+  "entrepreneurship": "Entrepreneurship, financial inclusion, and digital economy"
 }
