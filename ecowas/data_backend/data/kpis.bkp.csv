@@ -1,0 +1,39 @@
+﻿id;label;label_to_use_in_dash;kpi_description;parent_id;label_french;kpi_description_french;label_portuguese;kpi_description_portuguese;is_gender_index_kpi;associated_gender_kpi_id
+1;HCD Index - Health and nutrition;Health and nutrition;Scale 0-1;;Santé et nutrition;Echelle 0-1;Saude e nutriçao;Escala 0-1;0;
+2;HCD Index - Fertility rate;Fertility rate;births per woman;1;Taux de fécondité;naissances par femme;Taxa de fertilidade;nascimentos por mulher;0;
+3;HCD Index - Maternal mortality rate;Maternal mortality rate;# of deaths/100,000 live births;1;Taux de mortalité maternelle;Nombre de décès/100 000 naissances vivantes;Taxa de mortalidade materna;# de mortes/100.000 nascidos vivos;0;
+4;HCD Index - Under-5 mortality rate;Under-5 mortality rate;# of deaths/1000 live births;1;Taux de mortalité des moins de 5 ans;# de décès/1 000 naissances vivantes;Taxa de mortalidade de menores de 5 anos;# de mortes/1000 nascidos vivos;0;
+5;HCD Index - Under-5 stunting rate;Under-5 stunting rate;% of children under 5;1;Taux de retard de croissance chez les moins de 5 ans;% d'enfants de moins de 5 ans;Taxa de nanismo em menores de 5 anos;% de crianças menores de 5 anos;0;
+6;HCD Index - Life expectancy at birth;Life expectancy at birth;# years;1;;;;;0;
+7;HCD Index - Government health exp.;Government health exp.;% of general government expenditure;1;;;;;0;
+8;HCD Index - Child Marriage;Child Marriage;% of women ages 20-24 married before 18;1;;;;;0;
+9;HCD Index - Education, skills and labor participation;Education, skills and labor participation;Scale 0-1;;;;;;0;
+10;HCD Index - Government Education exp.;Government Education exp.;%GDP;9;;;;;0;
+11;HCD Index - Ratio of teachers;Ratio of teachers;pupil-teachers ratio (primary education;9;;;;;0;
+12;HCD Index - Children out of school;Children out of school;% of primary school age children;9;;;;;0;
+13;HCD Index - Mean years of schooling;Mean years of schooling;# years;9;;;;;0;
+14;HCD Index - Harmonized test scores;Harmonized test scores;score out of 625;9;;;;;0;
+15;HCD Index - Youth NEET;Youth NEET;% of youth not employed, in education or in training;9;;;;;0;
+16;HCD Index - Youth literacy rate;Youth literacy rate;% in 15-24 years old population;9;;;;;0;
+17;HCD Index - Number of citations;Number of citations;# citations in thousands;9;;;;;0;
+18;HCD Index - Entrepreneurship, financial inclusion and digital economy;Entrepreneurship, financial inclusion and digital economy;Scale 0-1;;;;;;0;
+19;HCD Index - Penetration rate fin services;Penetration rate fin services;Number of financial services outlets/ 10,000 adults;18;;;;;0;
+20;HCD Index - Individuals using Internet;Individuals using Internet;% of the population;18;;;;;0;
+21;HCD Index - New business density;New business density;New registrations per 1,000 people ages 15-64;18;;;;;0;
+22;HCD Index - Integrated index;Integrated index;Scale 0-1;;;;;;0;
+23;HCD Gender Index - Integrated index; Integrated index;Scale 0-1;;;;;;1;22
+24;HCD Gender Index - Health and nutrition; Health and nutrition;Scale 0-1;;;;;;1;1
+25;HCD Gender Index - Education, skills and labor participation; Education, skills and labor participation;Scale 0-1;;;;;;1;9
+26;HCD Gender Index - Entrepreneurship, financial inclusion and digital economy; Entrepreneurship, financial inclusion and digital economy;Scale 0-1;;;;;;1;18
+27;HCD Gender Index - Under-5 mortality rate;Under-5 mortality rate;# of deaths/1000 live births;24;;;;;1;4
+28;HCD Gender Index - Maternal mortality rate;Maternal mortality rate;per 100,000 live births;24;;;;;1;3
+29;HCD Gender Index - Under-5 stunting rate;Under-5 stunting rate;% of children under 5;24;;;;;1;5
+30;HCD Gender Index - Life expectancy at birth;Life expectancy at birth;# years;24;;;;;1;6
+31;HCD Gender Index - Children out of school;Children out of school;% of primary school age children;25;;;;;1;12
+32;HCD Gender Index - Mean years of schooling; Mean years of schooling;# years;25;;;;;1;13
+33;HCD Gender Index - Harmonized test scores; Harmonized test scores;score out of 625;25;;;;;1;14
+34;HCD Gender Index - Youth NEET; Youth NEET;% of youth not employed, in education or in training;25;;;;;1;15
+35;HCD Gender Index - Youth literacy rate; Youth literacy rate;% in 15-24 years old population (female vs. Male population);25;;;;;1;16
+36;HCD Gender Index - Managerial positions; Managerial positions;;26;;;;;1;
+37;HCD Gender Index - Internet penetration; Internet penetration;% using the Internet (female vs. Male population);26;;;;;1;
+38;HCD Gender Index - Saving at a financial institution; Saving at a financial institution;% age 15+;26;;;;;1;
