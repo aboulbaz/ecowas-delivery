@@ -70,7 +70,7 @@ export interface IOverviewValues {
   country: ICountry;
   kpi: IKPI;
   associatedKpi?: IOverviewValues;
-  childs?: IKPI[];
+  childs?: IOverviewValues[];
 }
 
 export type IconDIspatcherValue = {
