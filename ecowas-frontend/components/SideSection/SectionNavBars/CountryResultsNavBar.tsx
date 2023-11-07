@@ -13,7 +13,8 @@ import Image from "next/image";
 import LocationIcon from "public/assets/icons/location-icon.svg";
 import DropdownIcon from "public/assets/icons/dropwdown-icon.svg";
 import { useCountryResultsContext } from "utils/context";
-import { VALUES_TYPE } from "utils/constants";
+import { VALUES_TYPE, ValuesTypeRecord } from "utils/constants";
+import { FormattedMessage } from "react-intl";
 
 interface CountryResultsNavBarState {
   anchorEl: any;
@@ -101,7 +102,7 @@ const CountryResultsNavBar: React.FC = () => {
             isClicked={value === state.clickedValue}
             backgroundColor={"#5eb894"}
           >
-            {value}
+            <FormattedMessage id={ValuesTypeRecord[value]} />
           </NavigationListItem>
         ))}
       </NavigationListWrapper>

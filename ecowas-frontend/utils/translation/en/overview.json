@@ -12,12 +12,14 @@
   },
   "target-value": "Target Value",
   "baseline": "Baseline",
+  "latest": "Latest",
   "baseline-normalized": "Baseline Normalized",
-  "latest:": "Latest",
   "target-latest-value": "Target for latest value",
   "target-latest-value-normalized": "Target for Latest Normalized",
   "target-2030": "Target 2030",
   "target-2030-normalized": "Target 2030 Normalized",
   "rank": "Rank",
-  "aggregated-index": "Aggregated index"
+  "aggregated-index": "Aggregated index",
+  "all-values": "All values",
+  "latest-vs-target": "Latest vs Target Value"
 }

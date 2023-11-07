@@ -132,8 +132,10 @@ const DimensionResultsCard: React.FC = () => {
                     <DimensionResultsCardSubTitle>
                       <FormattedMessage
                         id={
-                          data.kpi.description && data.kpi.description !== ""
-                            ? data.kpi.description
+                          data.kpi[LanguageDispatcher[language].description] &&
+                          data.kpi[LanguageDispatcher[language].description] !==
+                            ""
+                            ? data.kpi[LanguageDispatcher[language].description]
                             : "dimensionResults.scale"
                         }
                         values={{ scale: "0-1" }}

@@ -16,6 +16,7 @@ import { themeColors } from "themes/emotionColors";
 import TargetValue2030 from "./TargetValue2030";
 import "chartjs-plugin-datalabels";
 import ChartValue from "./ChartValue";
+import { useIntl } from "react-intl";
 
 ChartJS.register(CategoryScale, LinearScale, BarElement);
 
@@ -32,6 +33,7 @@ const OverviewChart: React.FC<OverviewChartProps> = ({
   target2030,
   latestValue,
 }) => {
+  const intl = useIntl();
   const data = {
     labels: [""],
     datasets: [
@@ -98,7 +100,13 @@ const OverviewChart: React.FC<OverviewChartProps> = ({
 
                 y = (y + base) / 2.5;
 
-                ctx.fillText(`Latest Value`, x, y);
+                ctx.fillText(
+                  intl.formatMessage({
+                    id: "overview.hcd-gender-index.latest",
+                  }),
+                  x,
+                  y
+                );
                 ctx.fillText(`2018-20`, x, y + 15);
                 ctx.textAlign = "center";
                 ctx.textBaseline = "middle";

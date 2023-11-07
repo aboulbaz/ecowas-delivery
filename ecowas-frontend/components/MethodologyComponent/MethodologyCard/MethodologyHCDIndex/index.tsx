@@ -6,8 +6,8 @@ import MethodologyHCDIndexPo from "./MethodologyHCDIndexPo";
 import { useLanguageContext } from "utils/context";
 
 const MethodologyHCDIndexDispatcher: Record<LANGUAGES, React.ReactNode> = {
-  [LANGUAGES.FR]: <MethodologyHCDIndexFr />,
   [LANGUAGES.EN]: <MethodologyHCDIndexEn />,
+  [LANGUAGES.FR]: <MethodologyHCDIndexFr />,
   [LANGUAGES.PO]: <MethodologyHCDIndexPo />,
 };
 

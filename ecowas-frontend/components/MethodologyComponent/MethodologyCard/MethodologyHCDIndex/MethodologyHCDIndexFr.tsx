@@ -7,48 +7,44 @@ const MethodologyHCDIndexFr = (props: Props) => {
   return (
     <>
       <MethodologyCardContent>
-        L{"'"}indice a été conçu pour être l{"'"}étoile du Nord de toutes les
-        initiatives. Il a été élaboré selon l{"'"}ambition de la CEDEAO à
-        travers trois principales dimensions. Il établit des objectifs clairs
-        définis en 2021 et sera mis à jour chaque année pour suivre les progrès
-        des États membres. Suivre les progrès de l{"'"}indice HCD est essentiel
-        pour maintenir la concentration et l{"'"}élan du HCD. L{"'"}indice
-        permet aux États membres de comprendre leur performance en HCD de
-        manière granulaire, de célébrer les succès et de pointer les tendances
-        négatives à corriger.
+        L{"'"}indice a été conçu pour être l{"'"}Étoile du Nord de toutes les
+        initiatives. Il a été élaboré conformément à l{"'"}ambition de la CEDEAO
+        sur trois dimensions principales. Il établit des objectifs clairs
+        définis en 2021 et sera mis à jour chaque année pour surveiller les
+        progrès des États membres. La surveillance des progrès de l{"'"}indice
+        HCD est essentielle pour maintenir la concentration et l{"'"}élan du
+        HCD. L{"'"}indice permet aux États membres de comprendre en détail leur
+        performance en matière de HCD, de célébrer leurs succès et d{"'"}
+        identifier les tendances négatives à corriger.
       </MethodologyCardContent>
 
       <MethodologyCardContent>
-        Il est essentiel pour le succès de la stratégie que l{"'"}indice annuel
-        HCD soit régulièrement mis à jour avec le soutien des points focaux.
-      </MethodologyCardContent>
-
-      <MethodologyCardContent>
+        Il est essentiel pour le succès de la stratégie que l{"'"}indice HCD
+        annuel soit régulièrement mis à jour avec le soutien des points focaux.
         L{"'"}objectif de cette section est de détailler la méthodologie de la
-        mise à jour de l{"'"}indice HCD ainsi que les conclusions de la première
-        ronde sur la révision de l{"'"}indice HCD de 2022.
+        mise à jour de l{"'"}indice HCD ainsi que les résultats de la première
+        ronde de révision de l{"'"}indice HCD en 2022.
       </MethodologyCardContent>
-
       <MethodologyCardContent>
-        La mise à jour de l{"'"}indice nécessite quatre étapes :
+        La mise à jour de l{"'"}indice comprend quatre étapes :
         <ol>
           <li>
             Sur chacune des trois dimensions du HCD, une liste d{"'"}indicateurs
-            est définie pour capturer l{"'"}évolution des intrants (par exemple,
-            les dépenses gouvernementales) ainsi que des extrants (par exemple,
+            est définie pour capturer l{"'"}évolution des inputs (par exemple,
+            les dépenses gouvernementales) ainsi que des outputs (par exemple,
             le ratio enseignant-élève) et des résultats (par exemple, l{"'"}
             alphabétisation des jeunes).
           </li>
           <li>
             Chaque valeur pour chaque pays est normalisée sur une échelle de 0 à
             1 pour permettre la comparaison et une lecture normalisée. Les
-            valeurs maximales de 0 à 1 sont fixées pour garantir que les valeurs
-            soient comparables dans le temps.
+            valeurs maximales de 0 à 1 sont définies pour garantir que les
+            valeurs sont comparables dans le temps
           </li>
           <li>
             Les indicateurs sont ensuite agrégés par thème, et des ajustements
-            sont effectués pour tenir compte de toute corrélation entre les
-            indicateurs avec une évolution des résultats liés, tels que la
+            sont apportés pour tenir compte de toute corrélation entre les
+            indicateurs avec l{"'"}évolution des résultats liés, tels que la
             mortalité infantile et la mortalité maternelle ; ensuite, l{"'"}
             indice est intégré au niveau national. La méthode utilisée pour
             calculer la moyenne par thème est la somme des carrés des
@@ -56,13 +52,13 @@ const MethodologyHCDIndexFr = (props: Props) => {
             par rapport à la performance cible idéale. Le carré de la variation
             (ou distance par rapport à la cible) est calculé pour chaque
             indicateur, la variation étant définie comme l{"'"}écart entre
-            chaque valeur individuelle et la moyenne, afin de réduire les
-            éventuels effets statistiques de tout point aberrant.
+            chaque valeur individuelle et la moyenne, afin de réduire l{"'"}
+            effet statistique potentiel des valeurs aberrantes.
           </li>
           <li>
-            Un indice HCD entièrement intégré est alors compilé pour la région
-            sur chacune des trois dimensions et est finalement intégré
-            globalement en tant que moyenne de tous les États membres.
+            Un indice HCD entièrement intégré est ensuite compilé pour la région
+            sur chacune des trois dimensions et est enfin intégré globalement en
+            tant que moyenne de tous les États membres.
           </li>
         </ol>
       </MethodologyCardContent>
@@ -79,26 +75,22 @@ const MethodologyHCDIndexFr = (props: Props) => {
         La performance observée inclut partiellement uniquement :
         <ul>
           <li>
-            L{"'"}effet de la pandémie de la COVID-19 ou des récents troubles
-            politiques, des systèmes de santé perturbés, des fermetures d{"'"}
-            écoles ou des menaces sur les moyens de subsistance.
+            L{"'"}effet de la pandémie de COVID-19 ou des récents troubles
+            politiques, tels que les systèmes de santé perturbés, la fermeture
+            des écoles ou la menace sur les moyens de subsistance.
           </li>
-          <li>
-            L{"'"}impact de la stratégie intégrée HCD de la CEDEAO pour 2030
-          </li>
+          <li>L{"'"}impact de la stratégie intégrée HCD de la CEDEAO 2030.</li>
         </ul>
       </MethodologyCardContent>
-
       <MethodologyCardContent>
-        L{"'"}exposition ci-dessous montre la liste des indicateurs
-        sélectionnés. Depuis 2021, 4 des 19 indicateurs initiaux liés à la
-        facilitation des affaires ont été abandonnés en raison de problèmes de
-        fiabilité des données (nombre de procédures pour démarrer une
-        entreprise, coûts de démarrage d{"'"}une entreprise, adultes possédant
-        un compte, tarifs Internet fixes). Ces indicateurs ont été remplacés
-        pour la mise à jour de l{"'"}indice HCD intégré de la CEDEAO par 3
-        nouveaux indicateurs : Pénétration des points de vente financiers,
-        Pénétration d{"'"}Internet, Nouvelles entreprises enregistrées.
+        Depuis 2021, 4 des 19 indicateurs initiaux liés à l{"'"}environnement
+        des affaires ont été abandonnés en raison de problèmes de fiabilité des
+        données (nombre de procédures pour créer une entreprise, coûts de
+        démarrage d{"'"}entreprise, adultes ayant un compte en banque, tarifs d
+        {"'"}accès à Internet fixe). Ces indicateurs ont été remplacés pour la
+        mise à jour de l{"'"}indice HCD intégré de la CEDEAO par 3 nouveaux
+        indicateurs : Pénétration des points de vente financiers, Pénétration d
+        {"'"}Internet, Nouvelles entreprises enregistrées.
       </MethodologyCardContent>
     </>
   );

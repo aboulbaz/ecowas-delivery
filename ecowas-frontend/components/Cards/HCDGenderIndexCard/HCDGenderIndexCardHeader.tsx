@@ -45,7 +45,7 @@ const HCDGenderIndexCardHeader: React.FC = () => {
           <HCDGenderIndexTableCellWrapper>
             <Image src={IconDispatcher[1].icon} height={50} alt="" />
             <HCDGenderIndexTableCellTitle>
-              <FormattedMessage id={IconDispatcher[1].title} /> yesy
+              <FormattedMessage id={IconDispatcher[1].title} />
             </HCDGenderIndexTableCellTitle>
           </HCDGenderIndexTableCellWrapper>
         </HCDGenderIndexTableCell>

@@ -23,10 +23,9 @@ type HorizontalOverviewChartProps = {
   data2?: number;
 };
 
-const HorizontalOverviewChart: React.FC<HorizontalOverviewChartProps> = ({
-  data1,
-  data2,
-}) => {
+const HorizontalOverviewChart: React.FC<
+  HorizontalOverviewChartProps
+> = ({}) => {
   const data: ChartData<"bar", number[], string> = {
     labels: [""],
     datasets: [
@@ -114,8 +113,7 @@ const HorizontalOverviewChart: React.FC<HorizontalOverviewChartProps> = ({
     <HorizontalOverviewChartWrapper>
       <Bar data={data} options={optionsBeta} />
       <HorizontalOverviewChartText>
-        {/* <FormattedMessage id="overview.target-value" /> */}
-        Target Value
+        <FormattedMessage id="overview.target-value" />
       </HorizontalOverviewChartText>
     </HorizontalOverviewChartWrapper>
   );

@@ -81,6 +81,14 @@ export enum VALUES_TYPE {
   TARGET_2030 = "Target 2030",
 }
 
+export const ValuesTypeRecord: Record<VALUES_TYPE, string> = {
+  [VALUES_TYPE.ALL]: "overview.all-values",
+  [VALUES_TYPE.BASELINE]: "overview.baseline",
+  [VALUES_TYPE.LATEST]: "overview.latest",
+  [VALUES_TYPE.TARGET_FOR_LATEST]: "overview.target-latest-value",
+  [VALUES_TYPE.TARGET_2030]: "overview.target-2030"
+}
+
 export enum GENDER_INDEX_DEPP_DIVE_METRIC {
   AGGREGATE_SCORE = "Aggregate score",
   UNDER_5_MORTALIRY_RATE = "Under-5 mortality rate",

@@ -75,6 +75,7 @@ export const OvervireCardProgressIcon = styled(Image)`
 
 export const HCDGenderIndexWrapper = styled.div`
   min-width: 14rem;
+  margin-top: 0.9rem;
   @media (max-width: 1430px) {
     min-width: 13rem;
   }

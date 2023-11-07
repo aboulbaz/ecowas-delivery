@@ -10,14 +10,16 @@
     "latest-value": "Valor mais recente",
     "latest-value-normalized": "Último valor normalizado"
   },
-  "target-value": "Target Value",
+  "target-value": "Valor alvo",
   "baseline": "Baseline",
   "baseline-normalized": "Baseline normalizado",
-  "latest:": "Latest",
+  "latest": "Valor mais recente",
   "target-latest-value": "Meta para o valor mais recente",
   "target-latest-value-normalized": "Objetivo para o último valor normalizado",
   "target-2030": "Valor alvo 2030",
   "target-2030-normalized": "Meta 2030 normalizada",
   "rank": "Classificação",
-  "aggregated-index": "Índice agregado"
+  "aggregated-index": "Índice agregado",
+  "all-values": "Todos os valores",
+  "latest-vs-target": "Valor recente vs Objetivo`"
 }
