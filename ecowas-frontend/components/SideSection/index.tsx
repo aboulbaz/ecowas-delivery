@@ -45,7 +45,6 @@ const CicularLoaderWrapper = styled.div`
   width: 100%;
 `;
 
-
 const SideSection: React.FC<SideSectionProps> = ({ isContainer, children }) => {
   const router = useRouter();
   const isGenderIndex = useMemo(() => {
@@ -60,8 +59,7 @@ const SideSection: React.FC<SideSectionProps> = ({ isContainer, children }) => {
       : getGenderOverviewValues(ECOWAS_DEFAULT_ID);
   const { data, isLoading } = useQuery(
     [isGenderIndex ? GET_OVERVIEW_VALUES : GET_GENDER_OVERVIEW_VALUES],
-    getKPIIndexes,
-    { onSuccess: (data) => console.log(data) }
+    getKPIIndexes
   );
   return !isLoading && data ? (
     <SideSectionWrapper isContainer={!!isContainer}>

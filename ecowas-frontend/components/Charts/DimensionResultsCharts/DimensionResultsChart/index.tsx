@@ -16,7 +16,7 @@ import {
 } from "./DimensionResultsChart.style";
 import { themeColors } from "themes/emotionColors";
 import "chartjs-plugin-datalabels";
-import { FormattedMessage } from "react-intl";
+import { FormattedMessage, useIntl } from "react-intl";
 
 ChartJS.register(CategoryScale, LinearScale, BarElement);
 
@@ -31,6 +31,7 @@ const DimensionResultsChart: React.FC<DimensionResultsChartProps> = ({
   baseLine,
   latestValue,
 }) => {
+  const intl = useIntl();
   const [chartData, setChartData] = useState({
     labels: [""],
     datasets: [
@@ -98,7 +99,13 @@ const DimensionResultsChart: React.FC<DimensionResultsChartProps> = ({
                 y = (y + base) / 2.5;
 
                 if (Number(value) < 0.5) {
-                  ctx.fillText(`Latest Value`, x + 10, y + 18);
+                  ctx.fillText(
+                    intl.formatMessage({
+                      id: "overview.hcd-gender-index.latest-value",
+                    }),
+                    x + 10,
+                    y + 18
+                  );
                   ctx.fillText(`2018-20`, x + 10, y + 30);
                   ctx.textAlign = "left";
                   ctx.textBaseline = "middle";

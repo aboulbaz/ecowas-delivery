@@ -75,7 +75,6 @@ export class KpiValuesService {
       });
       const promises = kpiIndex.map(async (kpiValue) => {
         if (kpiValue.kpi.associatedGenderIndexKpi) {
-          console.log('HERE');
           const associatedKpi = await this.kpiValueRepository.findOne({
             where: {
               country: {

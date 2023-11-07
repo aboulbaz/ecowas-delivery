@@ -46,7 +46,6 @@ const DimensionResultsCard: React.FC = () => {
     getDimensionResults,
     {
       onSuccess: (data) => {
-        console.log("data", data);
         const parent = data.find((kpi) => !kpi.kpi.parent);
         setIndexKpi(parent);
         const children = data.filter((kpi) => kpi.kpi.parent);

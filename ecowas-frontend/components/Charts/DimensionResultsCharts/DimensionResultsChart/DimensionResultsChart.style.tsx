@@ -13,7 +13,6 @@ export const ChartWrapper = styled.div`
 export const DimensionResultsChartIndicatorWrapper = styled.div`
   display: flex;
   position: relative;
-  /* width: 100%; // CHECK HERE */
   width: 95%; // CHECK HERE
   margin-top: -1rem;
 `;

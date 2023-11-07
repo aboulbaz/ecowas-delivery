@@ -33,11 +33,11 @@ const MyApp = (props: MyAppProps) => {
 
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
   return (
-    <CacheProvider value={emotionCache}>
-      <Head>
-        <meta name="viewport" content="initial-scale=1, width=device-width" />
-      </Head>
-      <LanguageProvider>
+    <LanguageProvider>
+      <CacheProvider value={emotionCache}>
+        <Head>
+          <meta name="viewport" content="initial-scale=1, width=device-width" />
+        </Head>
         <EmotionProvider theme={emotionTheme}>
           <ThemeProvider theme={defaultTheme}>
             <CssBaseline />
@@ -46,8 +46,8 @@ const MyApp = (props: MyAppProps) => {
             </OverviewProvider>
           </ThemeProvider>
         </EmotionProvider>
-      </LanguageProvider>
-    </CacheProvider>
+      </CacheProvider>
+    </LanguageProvider>
   );
 };
 
