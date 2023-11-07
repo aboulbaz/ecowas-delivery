@@ -25,18 +25,18 @@ services:
     depends_on:
       - data_backend
 
-  # ecowas-frontend:
-  #   build:
-  #     context: ecowas-frontend/
-  #     dockerfile: Dockerfile
-  #   container_name: ecowas-frontend
-  #   restart: on-failure
-  #   ports:
-  #     - "3000:3000"
-  #   networks:
-  #     - ecowas_network
-  #   depends_on:
-  #     - ecowas-backend
+  ecowas-frontend:
+    build:
+      context: ecowas-frontend/
+      dockerfile: Dockerfile
+    container_name: ecowas-frontend
+    restart: on-failure
+    ports:
+      - "3000:3000"
+    networks:
+      - ecowas_network
+    depends_on:
+      - ecowas-backend
 
   postgres:
     image: postgres:15.3-alpine3.18
