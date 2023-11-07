@@ -2,8 +2,8 @@
   "performance": "Performance",
   "very-strong": "Très fort",
   "low": "Faible",
-  "integrated-hcd-index": "HCD Gender integrated index",
-  "health": "Health and nutrition",
-  "education": "Education, skills, and labor participation",
-  "entrepreneurship": "Entrepreneurship, financial inclusion, and digital economy"
+  "integrated-hcd-index": "Indice de genre DCH",
+  "health": "Indice sur la santé et nutrition",
+  "education": "Éducation, compétences et participation au marché du travail",
+  "entrepreneurship": "Entreprenariat, Inclusion financière et l'économie numérique"
 }

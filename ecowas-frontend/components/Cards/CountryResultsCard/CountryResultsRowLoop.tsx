@@ -14,8 +14,6 @@ const CountryResultsRowLoop: React.FC<Props> = ({
   language,
   valueType,
 }) => {
-  // IndexEnum
-  console.log("kpiValue", kpiValues);
   return (
     <>
       {kpiValues?.map((kpiValue) => {

@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useReducer, useState } from "react";
 import { useMutation, useQueryClient } from "react-query";
 import { GET_COUNTRIES } from "utils/api-requests/global";
 import { ICountry } from "utils/types";
@@ -31,10 +31,35 @@ import {
 import { FormattedMessage } from "react-intl";
 import { interpolateColor } from "utils/functions";
 
+interface HCDGenderIndexDeepDiveStates {
+  caboVerde: number;
+  ECOWAS: number;
+}
+
+const initialState: HCDGenderIndexDeepDiveStates = {
+  caboVerde: 0,
+  ECOWAS: 0,
+};
+
+type Action = {
+  type: "SET_VALUES";
+  payload: HCDGenderIndexDeepDiveStates;
+};
+
+const reducer = (state: HCDGenderIndexDeepDiveStates, action: Action) => {
+  switch (action.type) {
+    case "SET_VALUES":
+      return {
+        ...action.payload,
+      };
+    default:
+      return state;
+  }
+};
+
 const HCDDeepDiveMap: React.FC = () => {
   const queryClient = useQueryClient();
-  const [caboVerde, setCaboVerde] = useState<number>(0);
-  const [ECOWAS, setECOWAS] = useState<number>(0);
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   const countries = queryClient.getQueryData(GET_COUNTRIES) as ICountry[];
 
@@ -46,20 +71,21 @@ const HCDDeepDiveMap: React.FC = () => {
     isLoading,
   } = useMutation([GET_ALL_INDEX_KPIS], getKpiData, {
     onSuccess: (data) => {
-      let tmp = data.find((c) => c.country.id === 4)?.latestValue;
-      setCaboVerde(tmp || 0);
-      tmp = data.find((c) => c.country.id === ECOWAS_DEFAULT_ID)?.latestValue;
-      setECOWAS(tmp || 0);
+      dispatch({
+        type: "SET_VALUES",
+        payload: {
+          caboVerde: data.find((c) => c.country.id === 4)?.latestValue || 0,
+          ECOWAS:
+            data.find((c) => c.country.id === ECOWAS_DEFAULT_ID)?.latestValue ||
+            0,
+        },
+      });
     },
   });
 
   useEffect(() => {
     getData(valueType);
   }, [getData, valueType]);
-
-  const getRandomValue = (): number => {
-    return 1 - Math.random();
-  };
 
   if (isLoading)
     return (
@@ -86,16 +112,19 @@ const HCDDeepDiveMap: React.FC = () => {
           </MapMetricLabel>
           <CaboVerdeWrapper>
             <CaboVerdeCircle
-              opacity={caboVerde * 100}
-              color={interpolateColor(caboVerde)}
+              opacity={(state.caboVerde / 1.5) * 100}
+              color={interpolateColor(state.caboVerde / 1.5)}
             >
-              {caboVerde.toFixed(2)}
+              {state.caboVerde.toFixed(2)}
             </CaboVerdeCircle>
             Cabo Verde
           </CaboVerdeWrapper>
-          <ECOWASCircle opacity={ECOWAS * 100} color={interpolateColor(ECOWAS)}>
+          <ECOWASCircle
+            opacity={state.ECOWAS * 100}
+            color={interpolateColor(state.ECOWAS / 1.5)}
+          >
             <ECOWASText>ECOWAS</ECOWASText>
-            <ECOWASValue>{ECOWAS.toFixed(2)}</ECOWASValue>
+            <ECOWASValue>{state.ECOWAS.toFixed(2)}</ECOWASValue>
           </ECOWASCircle>
         </MapMetricWrapper>
         <MapSVG

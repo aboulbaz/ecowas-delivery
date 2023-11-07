@@ -102,7 +102,7 @@ const OverviewChart: React.FC<OverviewChartProps> = ({
 
                 ctx.fillText(
                   intl.formatMessage({
-                    id: "overview.hcd-gender-index.latest",
+                    id: "overview.hcd-gender-index.latest-value",
                   }),
                   x,
                   y

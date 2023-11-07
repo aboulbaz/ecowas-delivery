@@ -106,8 +106,8 @@ const HCDGenderIndexDeepDivenavBar: React.FC = () => {
                 {
                   id: index,
                   label: "Aggregated index",
-                  labelFrench: "Aggregated index",
-                  labelPortuguese: "Aggregated index",
+                  labelFrench: "Indice agrégé",
+                  labelPortuguese: "Índice agregado",
                 },
                 ...kpis,
               ]

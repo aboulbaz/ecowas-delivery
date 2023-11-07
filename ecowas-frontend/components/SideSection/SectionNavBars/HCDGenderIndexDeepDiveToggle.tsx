@@ -5,9 +5,8 @@ import {
   HCDDeepDiveNavigationListWrapper,
 } from "./SectionNavBars.style";
 import { useHCDGenderIndexDeepDiveContext } from "utils/context/HCDGenderIndexDeepDiveContext";
-import { IKPI } from "utils/types";
+import { IKPI, LanguageDispatcher } from "utils/types";
 import { useLanguageContext } from "utils/context";
-import { LANGUAGES } from "utils/constants";
 
 type Props = {
   kpis: IKPI[];
@@ -18,6 +17,7 @@ const HCDGenderIndexDeepDiveToggle: React.FC<Props> = ({ kpis }) => {
   const handlesClickedValue = (value: IKPI) => {
     setValueType(value.id);
   };
+  const { language } = useLanguageContext();
   return (
     <CountryComparisonNavBarWrapper>
       <HCDDeepDiveNavigationListWrapper backgroundColor="#D7D7D7">
@@ -28,7 +28,7 @@ const HCDGenderIndexDeepDiveToggle: React.FC<Props> = ({ kpis }) => {
             isClicked={valueType === kpi.id}
             backgroundColor={"#D7D7D7"}
           >
-            {kpi.label}
+            {kpi[LanguageDispatcher[language].label]}
           </HCDDeepDiveNavigationListItem>
         ))}
       </HCDDeepDiveNavigationListWrapper>
