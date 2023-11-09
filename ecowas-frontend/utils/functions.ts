@@ -1,4 +1,5 @@
 export const interpolateColor = (percentage: number): string => {
+  if (percentage > 1) return "#00834f";
   const c1 = parseInt("e0824e", 16);
   const c2 = parseInt("00834f", 16);
 

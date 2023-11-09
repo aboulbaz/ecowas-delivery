@@ -47,6 +47,6 @@ export const DimensionResultsChartIndicator = styled.div<DimensionResultsChartCo
 
 export const DimensionResultsChartTitle = styled.div`
   padding-left: 5px;
-  min-width: 3rem;
+  min-width: 6rem;
   padding-bottom: 5px;
 `;

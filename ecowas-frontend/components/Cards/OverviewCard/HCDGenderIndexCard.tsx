@@ -23,7 +23,7 @@ const HCDGenderIndexCard: React.FC<Props> = ({ title, latestValue }) => {
       <HCDGenderIndexLatestValueLabel>
         <FormattedMessage id={"overview.hcd-gender-index.latest-value"} />
       </HCDGenderIndexLatestValueLabel>
-      <HCDGenderIndexLatestValue>{latestValue}</HCDGenderIndexLatestValue>
+      <HCDGenderIndexLatestValue>{latestValue !== 0 ? latestValue : "N.A."}</HCDGenderIndexLatestValue>
     </HCDGenderIndexWrapper>
   );
 };

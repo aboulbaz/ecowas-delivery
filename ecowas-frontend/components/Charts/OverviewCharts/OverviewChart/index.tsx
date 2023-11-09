@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Bar } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -17,6 +17,8 @@ import TargetValue2030 from "./TargetValue2030";
 import "chartjs-plugin-datalabels";
 import ChartValue from "./ChartValue";
 import { useIntl } from "react-intl";
+import { useLanguageContext } from "utils/context";
+import { LANGUAGES } from "utils/constants";
 
 ChartJS.register(CategoryScale, LinearScale, BarElement);
 
@@ -34,6 +36,8 @@ const OverviewChart: React.FC<OverviewChartProps> = ({
   latestValue,
 }) => {
   const intl = useIntl();
+  const { language } = useLanguageContext();
+  const [currentLanguage, setCurrentLanguage] = useState<LANGUAGES>(language)
   const data = {
     labels: [""],
     datasets: [
@@ -126,13 +130,17 @@ const OverviewChart: React.FC<OverviewChartProps> = ({
     },
   ];
 
+  useEffect(() => {
+    setCurrentLanguage(language)
+  }, [language])
+
   return (
     <ChartWrapper>
       <TargetValue2030 target2030={target2030} />
       <ChartBarWrapper>
         <ChartValue title={"overview.baseline"} value={baseLine} />
         <BarWrapper>
-          <Bar data={data} options={optionsBeta} plugins={plugins} />
+          <Bar data={data} options={optionsBeta} plugins={plugins} redraw={language !== currentLanguage} />
         </BarWrapper>
         <ChartValue
           title={"overview.target-value"}

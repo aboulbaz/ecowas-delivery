@@ -45,6 +45,16 @@ const CicularLoaderWrapper = styled.div`
   width: 100%;
 `;
 
+const MinHeightPerPage: Record<Routes, number> = {
+  [Routes.OVERVIEW]: 43.7,
+  [Routes.DIMENSION_RESULTS]: 36,
+  [Routes.COUNTRY_COMPARISON]: 41,
+  [Routes.COUNTRY_RESULTS]: 36,
+  [Routes.HCD_GENDER_INDEX]: 37,
+  [Routes.HCD_GENDER_INDEX_DEEP_DIVE]: 36,
+  [Routes.METHODOLOGY]: 47,
+};
+
 const SideSection: React.FC<SideSectionProps> = ({ isContainer, children }) => {
   const router = useRouter();
   const isGenderIndex = useMemo(() => {
@@ -139,7 +149,12 @@ const SideSection: React.FC<SideSectionProps> = ({ isContainer, children }) => {
           </MetricSectionWrapper>
         </MetricSectionWrapperColor>
         {!!isContainer && (
-          <ReverseColumn isContainer={!!isContainer}>{children}</ReverseColumn>
+          <ReverseColumn
+            isContainer={!!isContainer}
+            minHeight={MinHeightPerPage[router.pathname]}
+          >
+            {children}
+          </ReverseColumn>
         )}
       </MetricSectionWrap>
     </SideSectionWrapper>

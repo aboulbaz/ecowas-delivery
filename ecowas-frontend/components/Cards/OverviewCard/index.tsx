@@ -36,7 +36,7 @@ const OverviewCard: React.FC<Props> = ({
   targetValue,
   baseLine,
   target2030,
-  latestValueHcdGenderIndex
+  latestValueHcdGenderIndex,
 }) => {
   return (
     <OverviewCardWrapper>
@@ -62,12 +62,12 @@ const OverviewCard: React.FC<Props> = ({
         targetValue={targetValue * 100}
       />
 
-      {latestValueHcdGenderIndex && (
-        <HCDGenderIndexCard
-          title={title}
-          latestValue={+latestValueHcdGenderIndex?.toFixed(2)}
-        />
-      )}
+      <HCDGenderIndexCard
+        title={title}
+        latestValue={
+          latestValueHcdGenderIndex ? +latestValueHcdGenderIndex?.toFixed(2) : 0
+        }
+      />
     </OverviewCardWrapper>
   );
 };

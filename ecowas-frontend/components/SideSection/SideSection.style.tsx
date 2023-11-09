@@ -4,6 +4,7 @@ import Image from "next/image";
 
 type SideSectionWrapperProps = {
   isContainer: boolean;
+  minHeight?: number
 };
 
 export const SideSectionWrapper = styled.div<SideSectionWrapperProps>`
@@ -134,7 +135,7 @@ export const SideSectionChildrenWrapper = styled.div`
 
 export const ReverseColumn = styled.div<SideSectionWrapperProps>`
   margin-left: 17.5rem;
-  height: ${({ isContainer }) => (isContainer ? "43rem" : "100px")};
+  height: ${({ isContainer, minHeight=43.7 }) => (isContainer ? `${minHeight}rem` : "100px")};
   margin-top: 14px;
   overflow-y: ${({ isContainer }) => (isContainer ? "auto" : undefined)};
 `;

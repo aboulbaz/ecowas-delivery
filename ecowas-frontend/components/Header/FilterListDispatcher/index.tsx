@@ -3,7 +3,6 @@ import React from "react";
 import { Routes } from "utils/constants";
 import OverviewFilter from "./OverviewFilter";
 import { useRouter } from "next/router";
-import DimensionResultsFilter from "./DimensionResultsFilter";
 
 const FilterListDispatcherObject: Record<Partial<Routes>, React.ReactNode> = {
   [Routes.OVERVIEW]: <OverviewFilter />,

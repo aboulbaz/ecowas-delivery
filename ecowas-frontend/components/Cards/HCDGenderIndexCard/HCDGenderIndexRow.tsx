@@ -33,44 +33,48 @@ const HCDGenderIndexRow: React.FC<Props> = ({ country }) => {
         <ValuedHCDGenderIndexTableCell
           color={
             !HCDValue.latestValue
-              ? "#656f70"
+              ? "#e0824e"
               : interpolateColor(HCDValue.latestValue / 1.5)
           }
         >
-          {HCDValue.latestValue?.toFixed(2)}
+          {HCDValue.latestValue ? HCDValue.latestValue?.toFixed(2) : "N.A."}
         </ValuedHCDGenderIndexTableCell>
       )}
       {HealtValue && (
         <ValuedHCDGenderIndexTableCell
           color={
             !HealtValue.latestValue
-              ? "#656f70"
+              ? "#e0824e"
               : interpolateColor(HealtValue.latestValue / 1.5)
           }
         >
-          {HealtValue.latestValue?.toFixed(2)}
+          {HealtValue.latestValue ? HealtValue.latestValue?.toFixed(2) : "N.A."}
         </ValuedHCDGenderIndexTableCell>
       )}
       {EducationValue && (
         <ValuedHCDGenderIndexTableCell
           color={
             !EducationValue.latestValue
-              ? "#656f70"
+              ? "#e0824e"
               : interpolateColor(EducationValue.latestValue / 1.5)
           }
         >
-          {EducationValue.latestValue?.toFixed(2)}
+          {EducationValue.latestValue
+            ? EducationValue.latestValue?.toFixed(2)
+            : "N.A."}
         </ValuedHCDGenderIndexTableCell>
       )}
       {EntrepreneurshipValue && (
         <ValuedHCDGenderIndexTableCell
           color={
             !EntrepreneurshipValue.latestValue
-              ? "#656f70"
+              ? "#e0824e"
               : interpolateColor(EntrepreneurshipValue.latestValue / 1.5)
           }
         >
-          {EntrepreneurshipValue.latestValue?.toFixed(2)}
+          {EntrepreneurshipValue.latestValue
+            ? EntrepreneurshipValue.latestValue?.toFixed(2)
+            : "N.A."}
         </ValuedHCDGenderIndexTableCell>
       )}
     </HCDGenderIndexTableRow>

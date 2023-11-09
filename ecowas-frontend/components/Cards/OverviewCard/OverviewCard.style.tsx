@@ -28,7 +28,7 @@ export const OverviewCardIconWrapper = styled.div`
   font-size: 0.9rem;
   line-height: 120%;
   margin-bottom: 1rem;
-  height: 7.4rem;
+  min-height: 7.7rem;
 `;
 
 export const OverviewCardTitleWrapper = styled.div`
@@ -64,7 +64,7 @@ export const OvervireCardProgressValue = styled.div<Props>`
   font-weight: 800;
   font-size: 1rem;
   line-height: 120%;
-  gap: 0.5rem;
+  gap: 0.4rem;
   color: ${({ color }) => color};
 `;
 
@@ -109,6 +109,7 @@ export const HCDGenderIndexLatestValueLabel = styled.div`
   font-weight: 700;
   font-size: 12px;
   line-height: 120%;
+
 `;
 
 export const HCDGenderIndexLatestValue = styled.div`
@@ -117,4 +118,5 @@ export const HCDGenderIndexLatestValue = styled.div`
   font-size: 2rem;
   line-height: 120%;
   color: #e0824e;
+  padding-bottom: 1rem;
 `;

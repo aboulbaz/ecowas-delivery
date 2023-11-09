@@ -26,7 +26,7 @@ const OverviewPageWrapper = styled.div`
   height: 100%;
   display: flex;
   gap: 1rem;
-  height: 43rem;
+  min-height: 43.7rem;
   width: 100%;
   overflow-x: auto;
   padding-right: 20px;
