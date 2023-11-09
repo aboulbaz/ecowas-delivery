@@ -47,11 +47,11 @@ const CicularLoaderWrapper = styled.div`
 
 const MinHeightPerPage: Record<Routes, number> = {
   [Routes.OVERVIEW]: 43.7,
-  [Routes.DIMENSION_RESULTS]: 36,
+  [Routes.DIMENSION_RESULTS]: 39,
   [Routes.COUNTRY_COMPARISON]: 41,
-  [Routes.COUNTRY_RESULTS]: 36,
-  [Routes.HCD_GENDER_INDEX]: 37,
-  [Routes.HCD_GENDER_INDEX_DEEP_DIVE]: 36,
+  [Routes.COUNTRY_RESULTS]: 39,
+  [Routes.HCD_GENDER_INDEX]: 39,
+  [Routes.HCD_GENDER_INDEX_DEEP_DIVE]: 39,
   [Routes.METHODOLOGY]: 47,
 };
 

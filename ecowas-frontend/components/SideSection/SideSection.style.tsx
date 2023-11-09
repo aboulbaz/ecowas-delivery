@@ -115,7 +115,7 @@ export const MetricSectionTitle = styled.div`
   font-weight: 700;
   font-size: 0.65rem;
   line-height: 120%;
-  height: 3.5rem;
+  height: 2.5rem;
 `;
 
 export const MetricSectionValue = styled.div`
@@ -126,8 +126,6 @@ export const MetricSectionValue = styled.div`
   display: flex;
   flex-direction: row-reverse;
 `;
-
-export const SideSectionContentWrapper = styled.div``;
 
 export const SideSectionChildrenWrapper = styled.div`
   margin-top: 1.5rem;
